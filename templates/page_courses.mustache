@@ -1,0 +1,1257 @@
+{{!
+    Courses page template for UniverziaAi - Redesigned
+}}
+{{> local_univerziaai/navbar }}
+
+<!-- Learning Hub / Courses Section -->
+<section id="courses" class="cx-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="cx-header">
+            <span class="cx-badge"><i class="fa-solid fa-graduation-cap"></i> Our Programs</span>
+            <h2 class="cx-title">Explore Our Most Popular <span class="cx-title-accent">Courses</span></h2>
+            <p class="cx-subtitle">Industry-aligned programs designed by experts. Gain job-ready skills in AI, Data Science, and cutting-edge technology with hands-on, project-based learning.</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="cx-tabs-wrap">
+            {{#category_tabs}}
+            <button class="cx-tab {{#active}}cx-tab--active{{/active}}" data-category="{{category}}">
+                {{#icon}}<span class="cx-tab-icon">{{{icon}}}</span>{{/icon}}
+                <span>{{label}}</span>
+            </button>
+            {{/category_tabs}}
+        </div>
+
+        <!-- === PANEL: AI Workshops === -->
+        <div class="cx-panel cx-panel--active" id="panel-ai-workshops">
+            <div class="cx-spotlight">
+                <div class="cx-spotlight-left">
+                    <div class="cx-spotlight-badge"><i class="fa-solid fa-bullseye"></i> AI Workshops</div>
+                    <h3 class="cx-spotlight-title">Master AI Tools & Prompt Engineering</h3>
+                    <p class="cx-spotlight-desc">{{ai_workshops_content.description}}</p>
+                    <a href="{{{page_ai_workshops}}}" class="cx-btn-primary"><span>Explore Workshop</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="cx-spotlight-right">
+                    <div class="cx-outcomes-list">
+                        {{#ai_workshops_content.outcomes}}
+                        <div class="cx-outcome-item">
+                            <span class="cx-outcome-check"><i class="fa-solid fa-check"></i></span>
+                            <span>{{.}}</span>
+                        </div>
+                        {{/ai_workshops_content.outcomes}}
+                    </div>
+                    <div class="cx-spotlight-stats">
+                        <div class="cx-stat-chip"><i class="fa-solid fa-clock"></i> 3+ Hours Live</div>
+                        <div class="cx-stat-chip"><i class="fa-solid fa-certificate"></i> Certificate</div>
+                        <div class="cx-stat-chip"><i class="fa-solid fa-indian-rupee-sign"></i> Just ₹9</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === PANEL: AI Mastery === -->
+        <div class="cx-panel" id="panel-ai-mastery">
+            <div class="cx-spotlight">
+                <div class="cx-spotlight-left">
+                    <div class="cx-spotlight-badge"><i class="fa-solid fa-rocket"></i> AI Mastery</div>
+                    <h3 class="cx-spotlight-title">Complete AI Toolkit for Your Career</h3>
+                    <p class="cx-spotlight-desc">{{ai_mastery_content.description}}</p>
+                    <a href="{{{page_ai_mastery_workshop}}}" class="cx-btn-primary"><span>View All AI Courses</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="cx-spotlight-right">
+                    <div class="cx-outcomes-list">
+                        {{#ai_mastery_content.key_points}}
+                        <div class="cx-outcome-item">
+                            <span class="cx-outcome-check"><i class="fa-solid fa-bolt"></i></span>
+                            <span>{{.}}</span>
+                        </div>
+                        {{/ai_mastery_content.key_points}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- === PANEL: Tech Program === -->
+        <div class="cx-panel" id="panel-tech">
+            <div class="cx-spotlight cx-spotlight--compact">
+                <div class="cx-spotlight-left">
+                    <div class="cx-spotlight-badge"><i class="fa-solid fa-laptop-code"></i> Tech Program</div>
+                    <h3 class="cx-spotlight-title">Build, Code & Automate with AI</h3>
+                    <p class="cx-spotlight-desc">{{tech_program_content.description}}</p>
+                </div>
+            </div>
+            <div class="cx-cards-grid">
+                {{#tech_program_content.courses}}
+                <div class="cx-card cx-card--tech">
+                    <div class="cx-card-icon-wrap">{{{icon}}}</div>
+                    <h4 class="cx-card-title">{{title}}</h4>
+                    <span class="cx-card-duration"><i class="fa-regular fa-clock"></i> {{duration}}</span>
+                    <p class="cx-card-desc">{{description}}</p>
+                    <button class="cx-card-btn" onclick="openCourseModal('{{modal_id}}')" style="background:none; border:none; cursor:pointer; padding:0; font-family:inherit;">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                
+                <!-- Course Modal (Moved outside card to avoid transform issues) -->
+                <div class="course-modal-overlay" id="{{modal_id}}">
+                    <div class="course-modal">
+                        <button class="course-modal-close" onclick="closeCourseModal('{{modal_id}}')">&times;</button>
+                        <div class="course-modal-header">
+                            <div class="course-modal-icon">{{{icon}}}</div>
+                            <div>
+                                <h3 class="course-modal-title">{{title}}</h3>
+                                <span class="course-modal-duration"><i class="fa-regular fa-clock"></i> {{duration}}</span>
+                            </div>
+                        </div>
+                        <div class="course-modal-body">
+                            <h4 class="course-curriculum-title">Course Curriculum</h4>
+                            <div class="amw-timeline" style="margin: 0; padding-left: 0;">
+                                {{#curriculum}}
+                                <div class="amw-phase">
+                                    <div class="amw-phase-dot" style="background: {{color}};">{{number}}</div>
+                                    <div class="amw-phase-card">
+                                        <div class="amw-phase-header" onclick="togglePhase(this)">
+                                            <div class="amw-phase-header-left">
+                                                <div class="amw-phase-info">
+                                                    <h3 style="font-size: 1rem; margin:0;">Phase {{number}}: {{title}}</h3>
+                                                </div>
+                                            </div>
+                                            <div class="amw-phase-toggle">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="amw-phase-body">
+                                            <div class="amw-topics-list">
+                                                {{#topics}}
+                                                <div class="amw-topic" style="padding: 8px 12px;">
+                                                    <div class="amw-topic-icon" style="width: 24px; height: 24px; font-size: 0.7rem; color: {{color}};">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </div>
+                                                    <span class="amw-topic-name" style="font-size: 0.9rem;">{{.}}</span>
+                                                </div>
+                                                {{/topics}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/curriculum}}
+                            </div>
+                        </div>
+                        <div class="course-modal-footer">
+                            <a href="{{{page_contact}}}" class="cx-btn-primary" style="width: 100%; justify-content: center;">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                {{/tech_program_content.courses}}
+            </div>
+        </div>
+
+        <!-- === PANEL: Data Program === -->
+        <div class="cx-panel" id="panel-data">
+            <div class="cx-spotlight cx-spotlight--compact">
+                <div class="cx-spotlight-left">
+                    <div class="cx-spotlight-badge"><i class="fa-solid fa-chart-simple"></i> Data Program</div>
+                    <h3 class="cx-spotlight-title">Turn Data into Actionable Insights</h3>
+                    <p class="cx-spotlight-desc">{{data_program_content.description}}</p>
+                </div>
+            </div>
+            <div class="cx-cards-grid">
+                {{#data_program_content.courses}}
+                <div class="cx-card cx-card--data">
+                    <div class="cx-card-icon-wrap">{{{icon}}}</div>
+                    <h4 class="cx-card-title">{{title}}</h4>
+                    <span class="cx-card-duration"><i class="fa-regular fa-clock"></i> {{duration}}</span>
+                    <p class="cx-card-desc">{{description}}</p>
+                    <button class="cx-card-btn" onclick="openCourseModal('{{modal_id}}')" style="background:none; border:none; cursor:pointer; padding:0; font-family:inherit;">Learn More <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Course Modal -->
+                <div class="course-modal-overlay" id="{{modal_id}}">
+                    <div class="course-modal">
+                        <button class="course-modal-close" onclick="closeCourseModal('{{modal_id}}')">&times;</button>
+                        <div class="course-modal-header">
+                            <div class="course-modal-icon">{{{icon}}}</div>
+                            <div>
+                                <h3 class="course-modal-title">{{title}}</h3>
+                                <span class="course-modal-duration"><i class="fa-regular fa-clock"></i> {{duration}}</span>
+                            </div>
+                        </div>
+                        <div class="course-modal-body">
+                            <h4 class="course-curriculum-title">Course Curriculum</h4>
+                            <div class="amw-timeline" style="margin: 0; padding-left: 0;">
+                                {{#curriculum}}
+                                <div class="amw-phase">
+                                    <div class="amw-phase-dot" style="background: {{color}};">{{number}}</div>
+                                    <div class="amw-phase-card">
+                                        <div class="amw-phase-header" onclick="togglePhase(this)">
+                                            <div class="amw-phase-header-left">
+                                                <div class="amw-phase-info">
+                                                    <h3 style="font-size: 1rem; margin:0;">Phase {{number}}: {{title}}</h3>
+                                                </div>
+                                            </div>
+                                            <div class="amw-phase-toggle">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="amw-phase-body">
+                                            <div class="amw-topics-list">
+                                                {{#topics}}
+                                                <div class="amw-topic" style="padding: 8px 12px;">
+                                                    <div class="amw-topic-icon" style="width: 24px; height: 24px; font-size: 0.7rem; color: {{color}};">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </div>
+                                                    <span class="amw-topic-name" style="font-size: 0.9rem;">{{.}}</span>
+                                                </div>
+                                                {{/topics}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/curriculum}}
+                            </div>
+                        </div>
+                        <div class="course-modal-footer">
+                            <a href="{{{page_contact}}}" class="cx-btn-primary" style="width: 100%; justify-content: center;">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                {{/data_program_content.courses}}
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="cx-bottom-cta">
+            <p>Can't decide? Talk to our learning advisor.</p>
+            <a href="{{{page_contact}}}" class="cx-btn-outline">Get Free Counselling <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Registration/Enquiry Section -->
+<section class="cx-register" id="cx-register">
+    <div class="cx-container">
+        <div class="cx-register-layout">
+            <div class="cx-register-info">
+                <div class="cx-section-badge"><i class="fa-solid fa-pen-to-square"></i> Register Now</div>
+                <h2>Start Your <span class="cx-gradient-text">AI Journey</span> Today</h2>
+                <p>Fill out the form and our team will get in touch with you with complete workshop details, schedule, and pricing.</p>
+                
+                <div class="cx-register-features">
+                    <div class="cx-register-feature">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>No prior AI or coding experience required</span>
+                    </div>
+                    <div class="cx-register-feature">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Flexible batch timings — weekday & weekend</span>
+                    </div>
+                    <div class="cx-register-feature">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Lifetime access to course materials & community</span>
+                    </div>
+                    <div class="cx-register-feature">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Industry-recognized certification on completion</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cx-form-card">
+                <h3><i class="fa-solid fa-user-plus"></i> Enquire Now</h3>
+                
+                <form id="cxRegForm" data-action="{{{form_action_url}}}">
+                    <!-- Hidden fields for backend validation -->
+                    <input type="hidden" name="department" value="Academic">
+                    <input type="hidden" name="course_service" value="General Course Inquiry">
+
+                    <div class="cx-form-row">
+                        <div class="cx-form-group">
+                            <label for="cxFirstName">First Name *</label>
+                            <input type="text" id="cxFirstName" name="firstname" placeholder="Your first name" required>
+                        </div>
+                        <div class="cx-form-group">
+                            <label for="cxLastName">Last Name *</label>
+                            <input type="text" id="cxLastName" name="lastname" placeholder="Your last name" required>
+                        </div>
+                    </div>
+                    <div class="cx-form-row">
+                        <div class="cx-form-group">
+                            <label for="cxEmail">Email Address *</label>
+                            <input type="email" id="cxEmail" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="cx-form-group">
+                            <label for="cxPhone">Phone Number</label>
+                            <input type="tel" id="cxPhone" name="phone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+                    <div class="cx-form-group">
+                        <label for="cxMessage">Message (Optional)</label>
+                        <textarea id="cxMessage" name="message" rows="3" placeholder="Any questions or special requirements..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cx-form-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Enquiry
+                    </button>
+                    
+                    <div id="cxFormMessage" class="cx-form-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Registration Section Styles (Dark Theme) */
+.cx-register {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 50%, #16213e 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.cx-register::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(240,128,66,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.cx-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.cx-register-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.cx-section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(240,128,66,0.15);
+    border: 1px solid rgba(240,128,66,0.3);
+    color: #F08042;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.cx-register-info h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.cx-gradient-text {
+    background: linear-gradient(135deg, #F08042, #E8652B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cx-register-info p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.cx-register-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cx-register-feature {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+}
+
+.cx-register-feature i {
+    color: #F08042;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.cx-register-feature span {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.cx-form-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 36px;
+}
+
+.cx-form-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cx-form-card h3 i { color: #F08042; }
+
+.cx-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.cx-form-group {
+    margin-bottom: 16px;
+}
+
+.cx-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+}
+
+.cx-form-group input,
+.cx-form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.cx-form-group input::placeholder,
+.cx-form-group textarea::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.cx-form-group input:focus,
+.cx-form-group textarea:focus {
+    outline: none;
+    border-color: #F08042;
+    background: rgba(255,255,255,0.12);
+    box-shadow: none;
+}
+
+.cx-form-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #F08042, #E8652B);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cx-form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240,128,66,0.4);
+}
+
+.cx-form-message {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .cx-register-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .cx-form-row { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cxRegForm = document.getElementById('cxRegForm');
+    const cxFormMessage = document.getElementById('cxFormMessage');
+    
+    if (cxRegForm) {
+        cxRegForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = cxRegForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(cxRegForm);
+            const actionUrl = cxRegForm.getAttribute('data-action');
+            
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                cxFormMessage.style.display = 'block';
+                if (data.success) {
+                    cxFormMessage.style.color = '#10b981';
+                    cxFormMessage.innerHTML = '<i class="fa-solid fa-check-circle"></i> ' + data.message;
+                    cxRegForm.reset();
+                } else {
+                    cxFormMessage.style.color = '#ef4444';
+                    cxFormMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + (data.message || 'An error occurred. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                cxFormMessage.style.display = 'block';
+                cxFormMessage.style.color = '#ef4444';
+                cxFormMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Something went wrong. Please check your connection and try again.';
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if(cxFormMessage.style.color.includes('10b981')) { // if green/success
+                        cxFormMessage.style.display = 'none';
+                    }
+                }, 5000);
+            });
+        });
+    }
+});
+</script>
+
+<style>
+/* Modal Styles */
+.course-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.course-modal-overlay.active {
+    display: flex;
+}
+
+.course-modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+.course-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #6b7280;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+}
+
+.course-modal-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.course-modal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary-100), #F3E8FF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-600);
+}
+
+.course-modal-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a2a3a;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.course-modal-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary-500);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: var(--primary-100);
+    border-radius: 6px;
+}
+
+.course-modal-body {
+    padding: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.course-curriculum-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.course-modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #f1f5f9;
+    background: #f8fafc;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Reusing AMW Timeline Styles with local overrides for modal context */
+.amw-timeline {
+    position: relative;
+    max-width: 100%;
+}
+.amw-timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+    border-radius: 3px;
+}
+.amw-phase {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 12px;
+}
+.amw-phase-dot {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: #fff;
+    z-index: 2;
+    box-shadow: 0 0 0 4px #fff;
+}
+.amw-phase-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.amw-phase-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    gap: 12px;
+    cursor: pointer;
+    background: #fafbfc;
+}
+.amw-phase-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.amw-phase-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+.amw-phase.open .amw-phase-toggle {
+    background: var(--primary-500);
+    color: #fff;
+    transform: rotate(180deg);
+}
+.amw-phase-body {
+    display: none;
+    border-top: 1px solid #e2e8f0;
+    animation: slideDown 0.3s ease;
+}
+.amw-phase.open .amw-phase-body {
+    display: block;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.amw-topics-list {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.amw-topic {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+</style>
+
+<script>
+function openCourseModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCourseModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function togglePhase(header) {
+    const phase = header.closest('.amw-phase');
+    phase.classList.toggle('open');
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('course-modal-overlay')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+</script>
+
+<style>
+/* ==========================================
+   COURSES SECTION - REDESIGN
+   ========================================== */
+.cx-section {
+    padding: 100px 0 80px;
+    background: linear-gradient(180deg, #FAFBFF 0%, #fff 100%);
+    position: relative;
+}
+
+.cx-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.cx-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--primary-100);
+    color: var(--primary-600);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.cx-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1A1A2E;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.cx-title-accent {
+    background: linear-gradient(135deg, var(--primary-500), #9D5CFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cx-subtitle {
+    font-size: 1.05rem;
+    color: var(--neutral-600);
+    line-height: 1.7;
+}
+
+/* --- Tabs --- */
+.cx-tabs-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.cx-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 2px solid var(--neutral-200);
+    background: #fff;
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-family: var(--font-display);
+}
+
+.cx-tab:hover {
+    border-color: var(--primary-300);
+    color: var(--primary-600);
+    background: var(--primary-100);
+}
+
+.cx-tab--active {
+    background: var(--primary-500);
+    color: #fff;
+    border-color: var(--primary-500);
+    box-shadow: 0 4px 16px rgba(240, 128, 66, 0.3);
+}
+
+.cx-tab--active:hover {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+    color: #fff;
+}
+
+.cx-tab-icon {
+    font-size: 1.1rem;
+}
+
+/* --- Panels --- */
+.cx-panel {
+    display: none;
+    animation: cxFadeIn 0.4s ease;
+}
+
+.cx-panel--active {
+    display: block;
+}
+
+@keyframes cxFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Spotlight Card (hero for each tab) --- */
+.cx-spotlight {
+    display: flex;
+    gap: 40px;
+    background: linear-gradient(135deg, #1A1A2E 0%, #2D2B55 100%);
+    border-radius: 24px;
+    padding: 48px;
+    margin-bottom: 36px;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.cx-spotlight::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(240,128,66,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.cx-spotlight--compact {
+    margin-bottom: 36px;
+}
+
+.cx-spotlight--compact .cx-spotlight-left {
+    flex: 1;
+}
+
+.cx-spotlight-left {
+    flex: 1;
+    min-width: 280px;
+}
+
+.cx-spotlight-right {
+    flex: 1;
+    min-width: 280px;
+}
+
+.cx-spotlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(240, 128, 66, 0.2);
+    color: var(--primary-400);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.cx-spotlight-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: #fff;
+}
+
+.cx-spotlight-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* --- Outcomes list inside spotlight --- */
+.cx-outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.cx-outcome-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.cx-outcome-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.cx-spotlight-stats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cx-stat-chip {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cx-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--primary-500);
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(240, 128, 66, 0.3);
+}
+
+.cx-btn-primary:hover {
+    background: var(--primary-600);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(240, 128, 66, 0.4);
+    color: white;
+}
+
+/* --- Cards Grid --- */
+.cx-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cx-card {
+    background: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.cx-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.cx-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cx-card-duration {
+    font-size: 0.85rem;
+    color: var(--neutral-500);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cx-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.cx-card-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    flex-grow: 1;
+}
+
+.cx-card-bullets li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--neutral-600);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.cx-card-bullets li i {
+    color: var(--primary-500);
+    margin-top: 4px;
+    font-size: 0.8rem;
+}
+
+.cx-card-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--neutral-300);
+    border-radius: 10px;
+    color: var(--neutral-700);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.cx-card-btn:hover {
+    background: #1A1A2E;
+    color: #ffffff !important;
+    border-color: #1A1A2E;
+}
+
+/* --- Tech & Data Cards Variants --- */
+.cx-card--tech, .cx-card--data {
+    border-top: 4px solid transparent;
+}
+
+.cx-card--tech:hover {
+    border-top-color: #3b82f6; /* Blue for Tech */
+}
+
+.cx-card--data:hover {
+    border-top-color: #10b981; /* Green for Data */
+}
+
+.cx-card-icon-wrap {
+    width: 50px;
+    height: 50px;
+    background: var(--neutral-100);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-600);
+    margin-bottom: 20px;
+}
+
+.cx-card-desc {
+    font-size: 0.9rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+/* --- Bottom CTA --- */
+.cx-bottom-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--neutral-200);
+}
+
+.cx-bottom-cta p {
+    font-size: 1.1rem;
+    color: var(--neutral-600);
+    margin-bottom: 20px;
+}
+
+.cx-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border: 2px solid var(--primary-500);
+    color: var(--primary-500);
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cx-btn-outline:hover {
+    background: var(--primary-500);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cx-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cx-spotlight {
+        flex-direction: column;
+        padding: 30px;
+        position: relative;
+    }
+    
+    .cx-spotlight-left, .cx-spotlight-right {
+        min-width: 100%;
+    }
+    
+    .cx-spotlight::before {
+        top: -40px;
+        right: -40px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .cx-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cx-header {
+        margin-bottom: 30px;
+    }
+    
+    .cx-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+{{> local_univerziaai/footer }}
+
+<script>
+{{{extrajs}}}
+</script>

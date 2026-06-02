@@ -1,0 +1,746 @@
+{{! 
+    Digital Marketing page template for UniverziaAi
+}}
+{{> local_univerziaai/navbar }}
+
+<!-- Hero Section -->
+<section class="dm-hero-section">
+    <div class="container">
+        <div class="dm-hero-row">
+            <!-- Left: Text -->
+            <div class="dm-hero-left">
+                <span class="dm-badge"><i class="fa-solid fa-bullhorn"></i> Digital Marketing</span>
+                <h1 class="dm-headline">{{{hero_title}}}</h1>
+                <p class="dm-subtext">{{hero_subtitle}}</p>
+                <div class="dm-cta-row">
+                    <a href="#contactForm" class="lms-btn-primary">
+                        Get Free Audit <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right: Visual -->
+            <div class="dm-hero-right">
+                <div class="dm-hero-circle"></div>
+                <!-- Main Image with 3D effect -->
+                <div class="dm-hero-img-wrapper">
+                    <img src="{{{hero_image}}}" alt="Digital Marketing" class="dm-hero-img">
+                </div>
+                
+                <!-- Floating Elements -->
+                <div class="dm-float-card dm-fc-1">
+                    <div class="dm-fc-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="dm-fc-text">
+                        <strong>+300%</strong>
+                        <span>Traffic Growth</span>
+                    </div>
+                </div>
+                
+                <div class="dm-float-card dm-fc-2">
+                    <div class="dm-fc-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="dm-fc-text">
+                        <strong>High</strong>
+                        <span>Conversion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 1. SEO Section (Left Text / Right Image) -->
+<section class="dm-service-section">
+    <div class="container">
+        <div class="dm-service-row">
+            <div class="dm-service-content">
+                <span class="dm-section-badge">{{seo_badge}}</span>
+                <h2 class="dm-section-title">{{seo_title}}</h2>
+                <p class="dm-section-desc">{{seo_desc}}</p>
+                
+                <ul class="dm-feature-list">
+                    {{#seo_features}}
+                    <li>
+                        <span class="dm-feature-icon">{{{icon}}}</span>
+                        <span>{{text}}</span>
+                    </li>
+                    {{/seo_features}}
+                </ul>
+            </div>
+            <div class="dm-service-visual">
+                <div class="dm-visual-bg bg-seo"></div>
+                <img src="{{{seo_image}}}" alt="SEO" class="dm-visual-img" onerror="this.src='https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&h=400&fit=crop'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. SMO Section (Right Text / Left Image) -->
+<section class="dm-service-section bg-light">
+    <div class="container">
+        <div class="dm-service-row reverse">
+            <div class="dm-service-content">
+                <span class="dm-section-badge">{{smo_badge}}</span>
+                <h2 class="dm-section-title">{{smo_title}}</h2>
+                <p class="dm-section-desc">{{smo_desc}}</p>
+                
+                <ul class="dm-feature-list">
+                    {{#smo_features}}
+                    <li>
+                        <span class="dm-feature-icon">{{{icon}}}</span>
+                        <span>{{text}}</span>
+                    </li>
+                    {{/smo_features}}
+                </ul>
+            </div>
+            <div class="dm-service-visual">
+                <div class="dm-visual-bg bg-smo"></div>
+                <img src="{{{smo_image}}}" alt="SMO" class="dm-visual-img" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. PPC Section (Left Text / Right Image) -->
+<section class="dm-service-section">
+    <div class="container">
+        <div class="dm-service-row">
+            <div class="dm-service-content">
+                <span class="dm-section-badge">{{ppc_badge}}</span>
+                <h2 class="dm-section-title">{{ppc_title}}</h2>
+                <p class="dm-section-desc">{{ppc_desc}}</p>
+                
+                <ul class="dm-feature-list">
+                    {{#ppc_features}}
+                    <li>
+                        <span class="dm-feature-icon">{{{icon}}}</span>
+                        <span>{{text}}</span>
+                    </li>
+                    {{/ppc_features}}
+                </ul>
+            </div>
+            <div class="dm-service-visual">
+                <div class="dm-visual-bg bg-ppc"></div>
+                <img src="{{{ppc_image}}}" alt="PPC" class="dm-visual-img" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Branding Section (Right Text / Left Image) -->
+<section class="dm-service-section bg-light">
+    <div class="container">
+        <div class="dm-service-row reverse">
+            <div class="dm-service-content">
+                <span class="dm-section-badge">{{branding_badge}}</span>
+                <h2 class="dm-section-title">{{branding_title}}</h2>
+                <p class="dm-section-desc">{{branding_desc}}</p>
+                
+                <ul class="dm-feature-list">
+                    {{#branding_features}}
+                    <li>
+                        <span class="dm-feature-icon">{{{icon}}}</span>
+                        <span>{{text}}</span>
+                    </li>
+                    {{/branding_features}}
+                </ul>
+            </div>
+            <div class="dm-service-visual">
+                <div class="dm-visual-bg bg-branding"></div>
+                <img src="{{{branding_image}}}" alt="Branding" class="dm-visual-img" onerror="this.src='https://images.unsplash.com/photo-1493612276216-9c7836983c59?w=600&h=400&fit=crop'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Analytics Section (Left Text / Right Image) -->
+<section class="dm-service-section">
+    <div class="container">
+        <div class="dm-service-row">
+            <div class="dm-service-content">
+                <span class="dm-section-badge">{{analytics_badge}}</span>
+                <h2 class="dm-section-title">{{analytics_title}}</h2>
+                <p class="dm-section-desc">{{analytics_desc}}</p>
+                
+                <ul class="dm-feature-list">
+                    {{#analytics_features}}
+                    <li>
+                        <span class="dm-feature-icon">{{{icon}}}</span>
+                        <span>{{text}}</span>
+                    </li>
+                    {{/analytics_features}}
+                </ul>
+            </div>
+            <div class="dm-service-visual">
+                <div class="dm-visual-bg bg-analytics"></div>
+                <img src="{{{analytics_image}}}" alt="Analytics" class="dm-visual-img" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section class="lms-faq-section" style="padding: 100px 0; background: #f8fafc;">
+    <div class="container">
+        <div class="section-header-center" style="margin-bottom: 60px; text-align: center;">
+            <h2 class="dm-section-title">Frequently Asked <span class="lms-gradient-text">Questions</span></h2>
+        </div>
+        
+        <div class="row justify-content-center" style="display: flex; justify-content: center;">
+            <div class="col-lg-9" style="width: 100%; max-width: 800px;">
+                <div class="why-accordion">
+                    {{#faq_items}}
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>{{question}}</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body">
+                            {{{answer}}}
+                        </div>
+                    </div>
+                    {{/faq_items}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get in Touch Section (Reuse LMS Contact Form Style) -->
+<section class="lms-contact-section" id="contactForm">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Left Side: Content -->
+            <div class="contact-content-side">
+                <div class="contact-content-inner">
+                    <span class="contact-badge">Grow Your Business</span>
+                    <h2 class="contact-title">Ready to <span class="contact-gradient">Scale Up?</span></h2>
+                    <p class="contact-subtitle">
+                        Get a free digital audit and a custom strategy tailored to your business goals. Let's start measuring success properly.
+                    </p>
+                    
+                    <div class="contact-perks">
+                        <div class="contact-perk-item">
+                            <div class="contact-perk-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>Free Competitor Analysis</span>
+                        </div>
+                        <div class="contact-perk-item">
+                            <div class="contact-perk-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>Custom Growth Roadmap</span>
+                        </div>
+                        <div class="contact-perk-item">
+                            <div class="contact-perk-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>No Long-Term Contracts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="contact-form-side">
+                <div class="contact-form-card" id="lmsFormContainer">
+                    <h3 class="contact-form-title">Request a Strategy</h3>
+                    <form id="lmsAdmissionForm" class="lms-admission-form">
+                        <div class="lms-form-row">
+                            <div class="lms-form-group">
+                                <label for="lmsFirstName">First Name</label>
+                                <input type="text" id="lmsFirstName" name="firstname" required placeholder="John">
+                            </div>
+                            <div class="lms-form-group">
+                                <label for="lmsLastName">Last Name</label>
+                                <input type="text" id="lmsLastName" name="lastname" required placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div class="lms-form-row">
+                            <div class="lms-form-group">
+                                <label for="lmsEmail">Email Address</label>
+                                <input type="email" id="lmsEmail" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="lms-form-group">
+                                <label for="lmsPhone">Phone</label>
+                                <input type="tel" id="lmsPhone" name="phone" placeholder="+91 9876543210">
+                            </div>
+                        </div>
+                        
+                        <div class="lms-form-group">
+                            <label for="lmsCountry">Country</label>
+                            <input type="text" id="lmsCountry" name="country" placeholder="India">
+                        </div>
+                        
+                        <div class="lms-form-group">
+                            <label>I am interested in:</label>
+                            <div class="lms-department-options">
+                                <label class="lms-radio-container">
+                                    <input type="radio" name="department" value="Academic" checked>
+                                    <span class="lms-checkmark"></span>
+                                    <span class="lms-radio-text">Academic</span>
+                                </label>
+                                <label class="lms-radio-container">
+                                    <input type="radio" name="department" value="Services" checked>
+                                    <span class="lms-checkmark"></span>
+                                    <span class="lms-radio-text">Services</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="lms-form-group" id="lmsCourseServiceContainer">
+                            <label id="lmsDropdownLabel">Select Service</label>
+                            <select id="lmsCourseServiceSelect" name="course_service" required>
+                                <option value="">Select Option</option>
+                                {{#admission_form_options.services}}
+                                <option value="{{.}}">{{.}}</option>
+                                {{/admission_form_options.services}}
+                            </select>
+                        </div>
+                        
+                        <div class="lms-form-group">
+                            <label for="lmsMessage">Website URL (Optional)</label>
+                            <input type="text" id="lmsMessage" name="message" placeholder="https://yourwebsite.com">
+                        </div>
+                        
+                        <button type="submit" class="lms-apply-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Get Strategy
+                        </button>
+                        
+                        <div id="lmsFormMessage" class="lms-form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Success State -->
+                <div class="lms-success-card" id="lmsSuccessContainer" style="display: none;">
+                    <div class="lms-success-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3>Request Sent!</h3>
+                    <p>We'll analyze your request and get back to you with a growth plan shortly.</p>
+                    <button id="lmsSendAnotherBtn" class="lms-apply-btn lms-btn-outline">Send Another</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{> local_univerziaai/footer }}
+
+<style>
+/* 
+   Digital Marketing Page Specific Styles
+   Inherits base styles/fonts from theme or previous pages 
+*/
+
+:root {
+    --dm-primary: #dc2626;
+    --dm-secondary: #f97316;
+    --dm-dark: #0f172a;
+    --dm-light: #f8fafc;
+    --dm-text: #475569;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dm-text);
+}
+
+/* --- Hero Section --- */
+.dm-hero-section {
+    position: relative;
+    padding: 160px 0 100px 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);
+}
+
+.dm-hero-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.dm-hero-left {
+    flex: 1 1 500px;
+    max-width: 600px;
+}
+
+.dm-hero-right {
+    flex: 1 1 450px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dm-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #fff1f2;
+    color: #be123c;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    border: 1px solid #ffe4e6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dm-headline {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--dm-dark);
+    margin-bottom: 24px;
+}
+
+.lms-gradient-text {
+    background: linear-gradient(to right, #dc2626, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dm-subtext {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--dm-text);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* Hero Visuals */
+.dm-hero-circle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ffedd5 0%, transparent 70%);
+    opacity: 0.6;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dm-hero-img-wrapper {
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.15);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+    border: 8px solid white;
+}
+
+.dm-hero-img-wrapper:hover {
+    transform: perspective(1000px) rotateY(0);
+}
+
+.dm-hero-img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
+
+.dm-float-card {
+    position: absolute;
+    background: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+    animation: dm-float 4s ease-in-out infinite;
+}
+
+.dm-fc-icon {
+    width: 40px;
+    height: 40px;
+    background: #ecfdf5;
+    color: #10b981;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.dm-fc-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.dm-fc-text strong {
+    font-size: 1.1rem;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.dm-fc-1 { top: 15%; right: -20px; animation-delay: 0s; }
+.dm-fc-2 { bottom: 10%; left: -30px; animation-delay: 2s; }
+
+@keyframes dm-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* --- Service Sections --- */
+.dm-service-section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.dm-service-section.bg-light { background: #f8fafc; }
+
+.dm-service-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.dm-service-row.reverse { flex-direction: row-reverse; }
+
+.dm-service-content {
+    flex: 1 1 500px;
+    max-width: 600px;
+}
+
+.dm-service-visual {
+    flex: 1 1 450px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.dm-section-badge {
+    color: var(--dm-secondary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.dm-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dm-dark);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.dm-section-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dm-text);
+    margin-bottom: 32px;
+}
+
+.dm-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.dm-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.dm-feature-icon {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    color: var(--dm-primary);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* Visuals for Service Sections */
+.dm-visual-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.dm-visual-bg {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.15;
+}
+
+.bg-seo { width: 400px; height: 400px; background: #22c55e; top: -40px; right: -40px; }
+.bg-smo { width: 350px; height: 350px; background: #e11d48; bottom: -30px; left: -30px; }
+.bg-ppc { width: 380px; height: 380px; background: #3b82f6; top: 20px; left: 20px; }
+.bg-branding { width: 400px; height: 400px; background: #a855f7; bottom: 0; right: -20px; }
+.bg-analytics { width: 360px; height: 360px; background: #f59e0b; top: -20px; left: 50px; }
+
+/* --- FAQ & Contact Section Reused Styles --- */
+/* Include relevant styles if they aren't globally available or duplicate necessary parts */
+
+/* FAQ Accordion */
+.lms-faq-section { /* ... */ }
+.why-accordion { display: flex; flex-direction: column; gap: 12px; }
+.accordion-item { border: 1px solid #e2e8f0; border-radius: 10px; background: white; overflow: hidden; }
+.accordion-item.active { border-color: #dc2626; background: #fef2f2; }
+.accordion-header { padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; }
+.accordion-body { padding: 0 20px 20px; display: none; color: #4b5563; line-height: 1.6; }
+.accordion-item.active .accordion-body { display: block; }
+
+/* Contact Form */
+.lms-contact-section { padding: 100px 0; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); }
+.contact-wrapper { display: flex; background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); }
+.contact-content-side { flex: 4; background: #1e293b; padding: 60px; color: white; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.contact-content-side::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.3; }
+.contact-badge { display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px; color: #00ffcc; }
+.contact-title { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.2; }
+.contact-gradient { background: linear-gradient(90deg, #f87171, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.contact-subtitle { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 40px; }
+.contact-perks { display: flex; flex-direction: column; gap: 15px; }
+.contact-perk-item { display: flex; align-items: center; gap: 15px; font-size: 1rem; color: rgba(255,255,255,0.9); }
+.contact-perk-icon { width: 24px; height: 24px; background: #00ffcc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1e293b; font-size: 0.7rem; flex-shrink: 0; }
+
+.contact-form-side { flex: 6; padding: 60px; display: flex; align-items: center; justify-content: center; }
+.contact-form-card { width: 100%; max-width: 500px; }
+.contact-form-title { font-size: 1.5rem; margin-bottom: 30px; color: #1a1a1a; }
+
+/* Form Elements */
+.lms-admission-form .lms-form-row { display: flex; gap: 20px; margin-bottom: 20px; }
+.lms-admission-form .lms-form-group { flex: 1; margin-bottom: 20px; }
+.lms-admission-form label { display: block; font-size: 0.9rem; font-weight: 600; color: #374151; margin-bottom: 8px; }
+.lms-admission-form input, .lms-admission-form select, .lms-admission-form textarea { width: 100%; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; color: #334155; transition: all 0.3s ease; background: #f8fafc; }
+.lms-admission-form input:focus, .lms-admission-form select:focus, .lms-admission-form textarea:focus { outline: none; border-color: #dc2626; background: #fff; box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
+.lms-apply-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 32px; background: #1e293b; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 10px; }
+.lms-apply-btn:hover { background: #0f172a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.lms-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #dc2626; color: white; padding: 16px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2); }
+.lms-btn-primary:hover { background: #b91c1c; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(220, 38, 38, 0.3); color: white; }
+
+/* Form Radio Logic */
+.lms-department-options { display: flex; gap: 30px; }
+.lms-radio-container { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem; color: #374151; }
+.lms-radio-container input[type="radio"] { display: none; }
+.lms-checkmark { display: block; width: 20px; height: 20px; min-width: 20px; border: 2px solid #d1d5db; border-radius: 50%; position: relative; transition: all 0.2s ease; flex-shrink: 0; box-sizing: border-box; background: #fff; }
+.lms-radio-container input:checked ~ .lms-checkmark { border-color: #dc2626; background: #fff; }
+.lms-checkmark::after { content: ""; position: absolute; display: none; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10px; height: 10px; border-radius: 50%; background: #dc2626; }
+.lms-radio-container input:checked ~ .lms-checkmark::after { display: block; }
+
+.lms-form-message { margin-top: 20px; font-size: 0.9rem; text-align: center; min-height: 20px; }
+.lms-form-message.success { color: #10b981; }
+.lms-form-message.error { color: #ef4444; }
+
+/* Success Card */
+.lms-success-card { text-align: center; padding: 40px; animation: lmsFadeIn 0.5s ease; display: none; flex-direction: column; align-items: center; }
+.lms-success-icon { width: 80px; height: 80px; background: #d1fae5; color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 25px; }
+
+@keyframes lmsFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .dm-hero-row { flex-direction: column-reverse; }
+    .dm-hero-left { text-align: center; }
+    .dm-cta-row { justify-content: center; }
+    .dm-headline { font-size: 2.5rem; }
+    .dm-subtext { margin: 0 auto 40px auto; }
+    .dm-hero-right { width: 100%; margin-bottom: 40px; }
+    
+    .dm-service-row, .dm-service-row.reverse { flex-direction: column-reverse; gap: 40px; }
+    .dm-service-visual { width: 100%; }
+    .dm-service-content { text-align: center; }
+    .dm-section-badge { display: inline-block; }
+    
+    .contact-wrapper { flex-direction: column; }
+    .contact-content-side, .contact-form-side { flex: 1; padding: 40px; }
+    .contact-content-side { align-items: center; text-align: center; }
+    .contact-content-side::before { background-image: none; background: #1e293b; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Accordion Logic
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    if(accordionItems.length > 0) {
+        if(!document.querySelector('.accordion-item.active')) {
+            accordionItems[0].classList.add('active');
+        }
+        accordionItems.forEach(item => {
+            item.querySelector('.accordion-header').addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                accordionItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    }
+
+    // Form Logic
+    const lmsForm = document.getElementById('lmsAdmissionForm');
+    const lmsMessageDiv = document.getElementById('lmsFormMessage');
+    const lmsSubmitBtn = lmsForm ? lmsForm.querySelector('.lms-apply-btn') : null;
+    const lmsFormContainer = document.getElementById('lmsFormContainer');
+    const lmsSuccessContainer = document.getElementById('lmsSuccessContainer');
+    const lmsSendAnotherBtn = document.getElementById('lmsSendAnotherBtn');
+
+    if(lmsForm) {
+        lmsForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            lmsSubmitBtn.disabled = true;
+            lmsSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            lmsMessageDiv.textContent = '';
+            
+            const formData = new FormData(lmsForm);
+            
+            fetch('{{{pluginurl}}}/ajax_submit_admission.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    lmsFormContainer.style.display = 'none';
+                    lmsSuccessContainer.style.display = 'flex';
+                    lmsForm.reset();
+                } else {
+                    lmsMessageDiv.textContent = data.message || 'An error occurred.';
+                    lmsMessageDiv.classList.add('error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                lmsMessageDiv.textContent = 'Network error. Please try again.';
+                lmsMessageDiv.classList.add('error');
+            })
+            .finally(() => {
+                lmsSubmitBtn.disabled = false;
+                lmsSubmitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Get Strategy';
+            });
+        });
+    }
+    
+    if(lmsSendAnotherBtn) {
+        lmsSendAnotherBtn.addEventListener('click', function() {
+            lmsSuccessContainer.style.display = 'none';
+            lmsFormContainer.style.display = 'block';
+        });
+    }
+});
+</script>

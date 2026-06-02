@@ -1,0 +1,727 @@
+{{!
+    AI Tools Workshop Redesigned Template
+}}
+{{> local_univerziaai/navbar }}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="badge">AI Mastery Workshop</span>
+                <h1 class="hero-title">{{{hero_title}}}</h1>
+                <p class="hero-subtitle">{{{hero_subtitle}}}</p>
+
+                <div class="hero-checklist-container" style="margin-bottom: var(--space-xl);">
+                    {{#hero_checklist}}
+                    <div class="checklist-item">
+                        <span class="check-icon"><i class="fa-solid fa-check"></i></span> <span>{{.}}</span>
+                    </div>
+                    {{/hero_checklist}}
+                </div>
+                
+                 <div class="hero-stats" style="margin-bottom: var(--space-lg);">
+                    {{#session_details}}
+                    <div class="stat-item">
+                        <div class="stat-number" style="font-size: 1.5rem;">{{{icon}}}</div>
+                        <div class="stat-label">{{text}}</div>
+                    </div>
+                    {{/session_details}}
+                </div>
+
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large pulse register-workshop-btn">
+                        <span>Register for Workshop</span>
+                        <span style="font-size: 0.8em; opacity: 0.9; margin-left: 5px;">(₹{{cta_price_current}} only)</span>
+                    </button>
+                    <button class="btn-secondary btn-large" onclick="document.getElementById('curriculum').scrollIntoView({behavior: 'smooth'})">
+                        View Curriculum
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-card card-1">
+                    <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <div class="card-title">Prompt Engineering</div>
+                        <div class="card-progress"><div class="progress-bar" style="width: 85%"></div></div>
+                    </div>
+                </div>
+                <div class="visual-card card-2">
+                    <div class="card-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <div>
+                        <div class="card-title">Data Analysis</div>
+                        <div class="card-progress"><div class="progress-bar" style="width: 92%"></div></div>
+                    </div>
+                </div>
+                <!-- Placeholder for instructor image if needed, for now utilizing abstract cards -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Warning / Why Join -->
+<section class="section-white">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Why Join?</div>
+            <h2 class="section-title">Upgrade Your Career</h2>
+            <p class="section-subtitle">Don't get left behind in the AI revolution.</p>
+        </div>
+
+        <div class="features-grid">
+            {{#why_join}}
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <div class="icon-bg"></div>
+                    {{{icon}}}
+                </div>
+                <h3 class="feature-title">{{title}}</h3>
+                <p class="feature-description">{{desc}}</p>
+            </div>
+            {{/why_join}}
+        </div>
+    </div>
+</section>
+
+<!-- Job Market Stats (Redesigned) -->
+<section class="stats-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; position: relative; overflow: hidden;">
+    <!-- Background Accents -->
+    <div style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: var(--primary-500); filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: #3b82f6; filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header">
+            <div class="section-badge" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);">Market Reality</div>
+            <h2 class="section-title" style="color: white;">AI Impact on <span class="gradient-text">Jobs</span></h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">The landscape of work is shifting. Here's what the data says.</p>
+        </div>
+        
+        <div class="stats-grid impact-stats-grid">
+             {{#market_reality_stats}}
+            <div class="impact-stat-card {{type}}">
+                <div class="card-glow"></div>
+                <div class="stat-icon-wrapper">{{{icon}}}</div>
+                <div class="stat-content">
+                    <div class="stat-big-number">{{value}}</div>
+                    <div class="stat-title">{{title}}</div>
+                    <p class="stat-desc">{{desc}}</p>
+                </div>
+                <div class="stat-source-badge">
+                    <i class="fa-solid fa-quote-left"></i> <span>{{source}}</span>
+                </div>
+            </div>
+            {{/market_reality_stats}}
+        </div>
+
+        <div class="section-badge" style="background: rgba(255,255,255,0.1); color: #fff; margin: 60px auto 20px; display: table; border: 1px solid rgba(255,255,255,0.2);">Media Coverage</div>
+        <h2 class="section-title" style="color: white; text-align: center; margin-bottom: 40px;">Rise in <span class="gradient-text">AI-related jobs</span></h2>
+
+        <div class="news-grid-cards">
+            {{#news_articles}}
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-source">{{source}}</span>
+                </div>
+                <h3 class="news-headline">{{headline}}</h3>
+                <div class="news-footer">
+                    <span class="read-more">Read Full Story <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+            {{/news_articles}}
+        </div>
+    </div>
+</section>
+
+<style>
+/* ... existing impact stats styles ... */
+
+/* News Cards Styles */
+.news-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.news-card {
+    background: #ffffff;
+    border-radius: 4px; /* Newspaper sharp corners */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--neutral-800);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.news-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-source {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--neutral-900);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.news-headline {
+    font-family: 'Times New Roman', serif; /* Newspaper font feel */
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: var(--neutral-900);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-weight: 700;
+}
+
+.news-footer {
+    margin-top: auto;
+}
+
+.read-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-600);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+</style>
+
+<style>
+/* Dynamic Impact Stats Section */
+.impact-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.impact-stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.impact-stat-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific Card Themes */
+.impact-stat-card.risk { border-top: 4px solid #ef4444; }
+.impact-stat-card.risk .stat-big-number { color: #ef4444; text-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
+.impact-stat-card.risk .stat-icon-wrapper { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+
+.impact-stat-card.change { border-top: 4px solid #f59e0b; }
+.impact-stat-card.change .stat-big-number { color: #f59e0b; text-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+.impact-stat-card.change .stat-icon-wrapper { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+
+.impact-stat-card.opportunity { border-top: 4px solid #10b981; }
+.impact-stat-card.opportunity .stat-big-number { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+.impact-stat-card.opportunity .stat-icon-wrapper { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+
+.stat-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.impact-stat-card:hover .stat-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.stat-big-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+}
+
+.stat-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.stat-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.stat-source-badge {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-style: italic;
+}
+
+.news-section-new img:hover {
+    opacity: 1 !important;
+    filter: grayscale(0%) brightness(100%) !important;
+}
+</style>
+
+<!-- Curriculum -->
+<section id="curriculum" class="curriculum-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Syllabus</div>
+            <h2 class="section-title">What You'll <span class="gradient-text">Master</span></h2>
+            <p class="section-subtitle">A comprehensive toolkit for the modern professional.</p>
+        </div>
+
+        <div class="workshop-grid">
+            {{#curriculum_modules}}
+            <div class="workshop-card">
+                <div class="workshop-header" style="padding-bottom: 0; background: none;">
+                    <div class="workshop-icon {{color}}" style="font-size: 2.5rem; background: var(--neutral-200); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">{{{icon}}}</div>
+                </div>
+                <div class="workshop-content" style="padding: 24px;">
+                    <h3 class="workshop-title" style="padding: 0; margin-top: 0;">{{title}}</h3>
+                    <p class="workshop-description" style="padding: 0;">{{desc}}</p>
+                </div>
+            </div>
+            {{/curriculum_modules}}
+        </div>
+    </div>
+</section>
+
+<!-- Bonuses -->
+<section class="bonuses-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Exclusive Perks</div>
+            <h2 class="section-title">Bonuses Worth <span class="text-primary">₹10,500</span></h2>
+        </div>
+
+        <div class="bonuses-grid">
+            {{#bonuses}}
+            <div class="bonus-card">
+                <div class="bonus-number">{{badge}}</div> <!-- Using badge text "Bonus 1" etc as label -->
+                <div class="bonus-icon" style="font-size: 3rem; margin: 20px 0;">{{{icon}}}</div>
+                <h3>{{title}}</h3>
+                <div class="bonus-value">
+                    <span class="value-label">Value</span>
+                    <span class="value-amount">{{worth}}</span>
+                </div>
+            </div>
+            {{/bonuses}}
+        </div>
+    </div>
+</section>
+
+<!-- Mentors -->
+<section class="mentors-section">
+    <div class="container">
+        <div class="section-header" style="text-align: left; max-width: 100%; margin: 0 0 40px 0;">
+            <div class="section-badge" style="display: inline-block;">Instructors</div>
+            <h2 class="section-title">Learn from the <span class="gradient-text">Experts</span></h2>
+        </div>
+
+        <div class="team-grid">
+            {{#mentors}}
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="{{image}}" alt="{{name}}" class="team-image">
+                </div>
+                <div class="team-content">
+                    <h3>{{name}}</h3>
+                    <p class="team-role">{{{title}}}</p>
+                    <p class="team-bio">{{{bio}}}</p>
+                    {{#socials}}
+                    <div class="team-socials">
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                    {{/socials}}
+                </div>
+            </div>
+            {{/mentors}}
+        </div>
+    </div>
+</section>
+
+<style>
+/* Reused Team Section Styles */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: var(--primary-200);
+}
+
+.team-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--neutral-50);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.team-content h3 {
+    color: var(--neutral-900);
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+}
+
+.team-role {
+    color: var(--primary-600);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.team-bio {
+    color: var(--neutral-600);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.team-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--neutral-100);
+    color: var(--neutral-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.team-socials a:hover {
+    background: var(--primary-600);
+    color: white;
+    transform: translateY(-3px);
+}
+</style>
+
+
+<!-- Certification Section -->
+<section class="section-white">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Certification</div>
+            <h2 class="section-title">Get a <span class="gradient-text">Certification</span> for the Workshop</h2>
+        </div>
+        
+        <div class="workshop-details-grid" style="align-items: center; grid-template-columns: 1fr 1fr; gap: 60px;">
+            <div class="certificate-text">
+                <p style="font-size: 1.2rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 2rem;">
+                    {{certificate_section.desc}}
+                </p>
+                <div class="checklist-item">
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span> <span>Industry Recognized</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span> <span>Add to your LinkedIn Profile</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span> <span>Valid for Lifetime</span>
+                </div>
+            </div>
+            <div class="certificate-visual" style="box-shadow: var(--shadow-xl); border-radius: var(--radius-lg); overflow: hidden; transform: rotate(2deg); transition: var(--transition-base);">
+                <img src="{{certificate_section.src}}" alt="Sample Certificate" style="width: 100%; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-grid">
+            {{#faq}}
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>{{question}}</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{{answer}}</p>
+                </div>
+            </div>
+            {{/faq}}
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-section">
+    <div class="cta-bg-gradient"></div>
+    <div class="cta-content">
+        <h2 class="cta-title">Ready to Future-Proof Your Career?</h2>
+        <p class="cta-subtitle">Join thousands of professionals mastering AI tools today.</p>
+        <div class="cta-actions">
+            <button class="btn-primary btn-large register-workshop-btn">
+                Register Now for ₹{{cta_price_current}}
+            </button>
+        </div>
+        <p style="color: rgba(255,255,255,0.6); margin-top: 20px; font-size: 0.9rem;">
+            Limited time offer. Price increases soon.
+        </p>
+    </div>
+</section>
+
+<!-- Registration Modal -->
+<div id="registrationModal" class="custom-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); z-index: 99999; justify-content: center; align-items: center;">
+    <div class="modal-content" style="background: white; width: 90%; max-width: 420px; padding: 30px; border-radius: 16px; position: relative; animation: slideUp 0.3s ease-out; margin: auto;">
+        <button onclick="closeRegistrationModal()" style="position: absolute; top: 12px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--neutral-500);">&times;</button>
+        
+        <form id="registrationForm">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; color: var(--neutral-700);">First Name *</label>
+                    <input type="text" name="firstname" required style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-size: 0.95rem;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; color: var(--neutral-700);">Last Name *</label>
+                    <input type="text" name="lastname" required style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-size: 0.95rem;">
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; color: var(--neutral-700);">Email Address *</label>
+                <input type="email" name="email" required style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-size: 0.95rem;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; color: var(--neutral-700);">Phone Number *</label>
+                <input type="tel" name="phone" required pattern="[0-9]{10}" style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-size: 0.95rem;" placeholder="10 digit mobile number">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; color: var(--neutral-700);">Address</label>
+                <input type="text" name="address" style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-size: 0.95rem;" placeholder="Your address (optional)">
+            </div>
+            
+            <div style="background: var(--neutral-100); padding: 12px 15px; border-radius: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600;">Workshop Fee</span>
+                <span style="font-size: 1.4rem; font-weight: 700; color: var(--primary-500);">₹{{payment_amount}}</span>
+            </div>
+            
+            <button type="submit" id="payNowBtn" class="btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; border-radius: 10px; border: none; cursor: pointer;">
+                Proceed to Pay ₹{{payment_amount}}
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Thank You Modal -->
+<div id="thankYouModal" class="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1001; justify-content: center; align-items: center;">
+    <div class="modal-content" style="background: white; width: 90%; max-width: 450px; padding: 50px 40px; border-radius: 20px; text-align: center; animation: slideUp 0.3s ease-out;">
+        <div style="font-size: 4rem; margin-bottom: 20px;"><i class="fa-solid fa-circle-check"></i></div>
+        <h2 style="color: var(--success); margin-bottom: 15px;">Payment Successful!</h2>
+        <p style="color: var(--neutral-600); margin-bottom: 10px; line-height: 1.6;">Thank you for registering for the AI Workshop!</p>
+        <p id="thankYouEmail" style="color: var(--neutral-600); margin-bottom: 25px;">A confirmation email has been sent to your registered email.</p>
+        <button onclick="closeThankYouModal()" class="btn-primary" style="padding: 12px 40px; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem;">Got it!</button>
+    </div>
+</div>
+
+<!-- Razorpay Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    // Config from server
+    const PAYMENT_ENDPOINT = '{{payment_endpoint}}';
+    const RAZORPAY_KEY = '{{razorpay_key}}';
+    const PAYMENT_AMOUNT = {{payment_amount}};
+    const BUSINESS_NAME = '{{business_name}}';
+    
+    // Modal elements
+    const registrationModal = document.getElementById('registrationModal');
+    const thankYouModal = document.getElementById('thankYouModal');
+    const registrationForm = document.getElementById('registrationForm');
+    const payNowBtn = document.getElementById('payNowBtn');
+    
+    // Open registration modal
+    document.querySelectorAll('.register-workshop-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            registrationModal.style.display = 'flex';
+        });
+    });
+    
+    function closeRegistrationModal() {
+        registrationModal.style.display = 'none';
+    }
+    
+    function closeThankYouModal() {
+        thankYouModal.style.display = 'none';
+    }
+    
+    // Close modals on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === registrationModal) closeRegistrationModal();
+        if (e.target === thankYouModal) closeThankYouModal();
+    });
+    
+    // Handle form submission
+    registrationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        payNowBtn.disabled = true;
+        payNowBtn.textContent = 'Processing...';
+        
+        const formData = new FormData(registrationForm);
+        formData.append('action', 'createorder');
+        formData.append('workshop_type', 'ai_workshop');
+        formData.append('amount', PAYMENT_AMOUNT);
+        
+        try {
+            const response = await fetch(PAYMENT_ENDPOINT, {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (!data.success) {
+                throw new Error(data.error || 'Failed to create order');
+            }
+            
+            // Open Razorpay checkout
+            const options = {
+                key: RAZORPAY_KEY,
+                amount: data.amount,
+                currency: data.currency,
+                name: BUSINESS_NAME,
+                description: 'AI Workshop Registration',
+                order_id: data.order_id,
+                prefill: data.prefill,
+                theme: {
+                    color: '#F08042'
+                },
+                handler: async function(response) {
+                    // Verify payment
+                    const verifyData = new FormData();
+                    verifyData.append('action', 'verifypayment');
+                    verifyData.append('razorpay_order_id', response.razorpay_order_id);
+                    verifyData.append('razorpay_payment_id', response.razorpay_payment_id);
+                    verifyData.append('razorpay_signature', response.razorpay_signature);
+                    verifyData.append('registration_id', data.registration_id);
+                    
+                    const verifyResponse = await fetch(PAYMENT_ENDPOINT, {
+                        method: 'POST',
+                        body: verifyData
+                    });
+                    
+                    const verifyResult = await verifyResponse.json();
+                    
+                    if (verifyResult.success) {
+                        closeRegistrationModal();
+                        document.getElementById('thankYouEmail').textContent = 
+                            'A confirmation email has been sent to ' + verifyResult.registration.email;
+                        thankYouModal.style.display = 'flex';
+                        registrationForm.reset();
+                    } else {
+                        alert('Payment verification failed. Please contact support.');
+                    }
+                },
+                modal: {
+                    ondismiss: function() {
+                        payNowBtn.disabled = false;
+                        payNowBtn.textContent = 'Proceed to Pay ₹' + PAYMENT_AMOUNT;
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+            
+        } catch (error) {
+            console.error('Payment error:', error);
+            alert('Error: ' + error.message);
+        }
+        
+        payNowBtn.disabled = false;
+        payNowBtn.textContent = 'Proceed to Pay ₹' + PAYMENT_AMOUNT;
+    });
+</script>
+
+{{> local_univerziaai/footer }}

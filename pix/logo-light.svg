@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 50">
+  <defs>
+    <!-- Brand gradient: warm orange (brighter for dark bg) -->
+    <linearGradient id="brandOrangeL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39967"/>
+      <stop offset="50%" style="stop-color:#F08042"/>
+      <stop offset="100%" style="stop-color:#F5A623"/>
+    </linearGradient>
+
+    <!-- Purple accent gradient -->
+    <linearGradient id="purpleAccentL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C084FC"/>
+      <stop offset="100%" style="stop-color:#D4A5FF"/>
+    </linearGradient>
+
+    <!-- AI text gradient -->
+    <linearGradient id="aiGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F39967"/>
+      <stop offset="100%" style="stop-color:#C084FC"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glowL" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="0.8" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- === BRAIN-STYLED UZA LETTERMARK === -->
+  <g transform="translate(2, 2)" filter="url(#glowL)">
+    <!-- Brain outline / organic shape surrounding the U -->
+    <path d="M22 2 C12 2 4 8 4 18 C4 28 4 34 12 40 C16 43 20 44 24 44 C28 44 32 43 36 40 C44 34 44 28 44 18 C44 8 36 2 26 2 Z"
+          fill="none" stroke="url(#brandOrangeL)" stroke-width="2.5" stroke-linecap="round" opacity="0.15"/>
+
+    <!-- Main U lettermark - bold strokes -->
+    <path d="M14 8 L14 28 Q14 40 24 40 Q34 40 34 28 L34 8"
+          fill="none" stroke="url(#brandOrangeL)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Brain neural pathways (right hemisphere) -->
+    <path d="M34 12 Q40 10 42 6" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M34 18 Q42 17 44 12" fill="none" stroke="#F39967" stroke-width="1.3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M34 24 Q40 25 43 20" fill="none" stroke="#F5A623" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Brain neural pathways (left hemisphere) -->
+    <path d="M14 12 Q8 10 5 7" fill="none" stroke="#F39967" stroke-width="1.3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M14 18 Q7 17 4 13" fill="none" stroke="#C084FC" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Neural nodes - right side -->
+    <circle cx="42" cy="6" r="2.8" fill="#C084FC"/>
+    <circle cx="42" cy="6" r="1.2" fill="#fff" opacity="0.9"/>
+
+    <circle cx="44" cy="12" r="2.2" fill="#F39967"/>
+    <circle cx="44" cy="12" r="0.9" fill="#fff" opacity="0.9"/>
+
+    <circle cx="43" cy="20" r="2" fill="#F5A623"/>
+    <circle cx="43" cy="20" r="0.8" fill="#fff" opacity="0.9"/>
+
+    <!-- Neural nodes - left side -->
+    <circle cx="5" cy="7" r="2.2" fill="#F39967" opacity="0.9"/>
+    <circle cx="5" cy="7" r="0.9" fill="#fff" opacity="0.8"/>
+
+    <circle cx="4" cy="13" r="1.8" fill="#C084FC" opacity="0.7"/>
+    <circle cx="4" cy="13" r="0.7" fill="#fff" opacity="0.7"/>
+
+    <!-- Small spark nodes -->
+    <circle cx="46" cy="3" r="1.2" fill="#F5A623" opacity="0.6"/>
+    <circle cx="1" cy="4" r="1" fill="#F5A623" opacity="0.5"/>
+
+    <!-- Connection between top nodes -->
+    <line x1="42" y1="6" x2="44" y2="12" stroke="url(#purpleAccentL)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <line x1="44" y1="12" x2="43" y2="20" stroke="url(#brandOrangeL)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- === TEXT: UniverziaAI === -->
+  <text x="56" y="34" font-family="'Sora', 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#F1F5F9" letter-spacing="-0.5">Univerzia<tspan fill="url(#aiGradL)" font-weight="800">AI</tspan></text>
+</svg>
