@@ -245,6 +245,11 @@ fi
 # ════════════════════════════════════════════════════════════════
 # Phase 5: Build
 # ════════════════════════════════════════════════════════════════
+# Ensure node_modules binaries are executable (may have been stripped by chmod 644)
+# Fix both the .bin/ symlinks AND the actual target files they point to
+find "${FRONTEND_DIR}/node_modules/.bin/" -type f -exec chmod 755 {} + 2>/dev/null || true
+find "${FRONTEND_DIR}/node_modules/.bin/" -type l -exec sh -c 'chmod 755 "$(readlink -f "$1")"' _ {} \; 2>/dev/null || true
+
 log "Building Next.js application..."
 BUILD_START=$(date +%s)
 
@@ -275,7 +280,9 @@ if [[ "$(id -u)" -eq 0 ]]; then
   find "$REPO_ROOT" -type d -exec chmod 755 {} +
   find "$REPO_ROOT" -type f -exec chmod 644 {} +
   chmod 755 "${REPO_ROOT}/deploy.sh"
-  chmod -R 755 "${FRONTEND_DIR}/node_modules/.bin/" 2>/dev/null || true
+  # Fix both .bin/ symlinks AND actual target binaries they point to
+  find "${FRONTEND_DIR}/node_modules/.bin/" -type f -exec chmod 755 {} + 2>/dev/null || true
+  find "${FRONTEND_DIR}/node_modules/.bin/" -type l -exec sh -c 'chmod 755 "$(readlink -f "$1")"' _ {} \; 2>/dev/null || true
   log_ok "Permissions set (www-data:www-data)"
 else
   log "Running as non-root — skipping permission changes"
