@@ -1,0 +1,13 @@
+export { default as Hero             } from "./Hero";
+export { default as Ecosystem        } from "./Ecosystem";
+export { default as WhyAI            } from "./WhyAI";
+export { default as Workshops        } from "./Workshops";
+export { default as LearningPaths    } from "./LearningPaths";
+export { default as Journey          } from "./Journey";
+export { default as WhyChoose        } from "./WhyChoose";
+export { default as FeaturedPrograms } from "./FeaturedPrograms";
+export { default as Outcomes         } from "./Outcomes";
+export { default as Testimonials     } from "./Testimonials";
+export { default as Community        } from "./Community";
+export { default as TechStack        } from "./TechStack";
+export { default as FinalCTA         } from "./FinalCTA";

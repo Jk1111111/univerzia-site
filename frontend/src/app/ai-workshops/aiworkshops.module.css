@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════════════════════
+   Univerzia AI — AI Workshops landing page (page styles)
+   Ported from Univerzia AI Design System/ui_kits/ai-workshops/aiworkshops.css
+   Shared chrome (u-wrap, u-section, u-head, u-btn, u-journey,
+   u-outcome, u-finalcta, u-reveal) lives in globals.css.
+
+   Block-level classes (aiw-*) are CSS-module-scoped (hashed) and applied
+   via styles["…"]. Generic structural sub-elements (.v, .t, .n, .ic, …)
+   are :global() but anchored under a hashed parent, so scope stays
+   contained with no global leakage.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.aiw-hero { position: relative; background: var(--grad-hero); color: #fff; overflow: hidden; padding: 88px 0 96px; }
+.aiw-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background:
+  radial-gradient(40% 50% at 12% 16%, rgba(124,58,237,0.5), transparent 70%),
+  radial-gradient(40% 48% at 88% 84%, rgba(249,115,22,0.28), transparent 70%); }
+.aiw-hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.aiw-hero-pill { display: inline-flex; align-items: center; gap: 9px; font-size: 12.5px; font-weight: 600; padding: 7px 15px; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px); margin-bottom: 24px; }
+.aiw-hero-pill :global(.dot) { width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 0 rgba(16,185,129,.6); animation: uPulse 2s infinite; }
+.aiw-hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; margin: 0 0 22px; color: #fff; text-wrap: balance; }
+.aiw-hero h1 :global(.g) { background: linear-gradient(120deg,#c084fc,#a78bfa,#fdba74); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.aiw-hero-lead { font-size: 18.5px; line-height: 1.62; color: rgba(255,255,255,0.78); margin: 0 0 26px; max-width: 560px; text-wrap: pretty; }
+.aiw-hero-check { display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+.aiw-hero-check span { display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: rgba(255,255,255,0.9); }
+.aiw-hero-check i { color: var(--success); font-size: 13px; width: 22px; height: 22px; border-radius: 7px; background: rgba(16,185,129,0.16); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.aiw-hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+.aiw-hero-stats { display: flex; flex-wrap: wrap; gap: 18px 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.12); }
+.aiw-hstat :global(.v) { font-size: 30px; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.aiw-hstat :global(.v .accent) { background: linear-gradient(120deg,#fdba74,#fb923c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.aiw-hstat :global(.l) { font-size: 12.5px; color: rgba(255,255,255,0.62); margin-top: 7px; }
+
+/* hero glass session card */
+.aiw-hero-card { position: relative; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; padding: 24px; backdrop-filter: blur(18px); box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6); }
+.aiw-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.aiw-card-head :global(.t) { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 9px; }
+.aiw-card-head :global(.live) { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: var(--danger); padding: 4px 10px; border-radius: 999px; }
+.aiw-card-head :global(.live .d) { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: uPulse 1.6s infinite; }
+.aiw-session { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+.aiw-session-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 13px; padding: 13px 14px; }
+.aiw-session-item i { font-size: 15px; color: var(--brand-primary-light); width: 18px; text-align: center; }
+.aiw-session-item span { font-size: 13px; font-weight: 500; color: #fff; }
+.aiw-card-tools { display: flex; align-items: center; gap: 8px; padding: 14px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 13px; margin-bottom: 18px; }
+.aiw-card-tools :global(.lbl) { font-size: 12px; color: rgba(255,255,255,0.6); margin-right: auto; }
+.aiw-card-tools :global(.chips) { display: flex; }
+.aiw-card-tools :global(.chips span) { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff; margin-left: -7px; border: 2px solid #19133c; }
+.aiw-card-price { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.aiw-card-price :global(.now) { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.aiw-card-price :global(.was) { font-size: 17px; color: rgba(255,255,255,0.5); text-decoration: line-through; }
+.aiw-card-price :global(.off) { font-size: 11.5px; font-weight: 700; color: var(--success); background: rgba(16,185,129,0.16); padding: 3px 9px; border-radius: 999px; }
+.aiw-hero-card :global(.u-btn) { width: 100%; justify-content: center; }
+.aiw-card-note { text-align: center; font-size: 11.5px; color: rgba(255,255,255,0.55); margin-top: 12px; }
+
+/* ── Section eyebrow (centered) ───────────────────────────── */
+.aiw-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-purple); margin-bottom: 16px; }
+.aiw-eyebrow :global(.bar) { width: 22px; height: 2px; background: var(--brand-purple); border-radius: 2px; }
+
+/* ── AI tools grid ────────────────────────────────────────── */
+.aiw-tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.aiw-tool { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 15px; padding: 16px 18px; box-shadow: var(--shadow-sm); transition: transform .22s var(--ease-out-quint), box-shadow .22s, border-color .22s; }
+.aiw-tool:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--brand-primary-200); }
+.aiw-tool-ic { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.aiw-tool :global(.n) { font-size: 14.5px; font-weight: 600; color: var(--fg-1); }
+.aiw-tool :global(.c) { font-size: 11.5px; color: var(--fg-4); margin-top: 2px; }
+
+/* ── Reviews (ratings) ────────────────────────────────────── */
+.aiw-reviews { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.aiw-review { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 30px; box-shadow: var(--shadow-sm); transition: transform .25s var(--ease-out-quint), box-shadow .25s; }
+.aiw-review:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.aiw-stars { display: flex; gap: 3px; color: var(--warning); font-size: 14px; margin-bottom: 16px; }
+.aiw-review :global(.q) { font-size: 16px; line-height: 1.6; color: var(--fg-1); font-weight: 500; letter-spacing: -0.01em; margin: 0 0 22px; text-wrap: pretty; }
+.aiw-review-person { display: flex; align-items: center; gap: 13px; }
+.aiw-review-av { width: 48px; height: 48px; border-radius: 50%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0; }
+.aiw-review-person :global(.n) { font-size: 14.5px; font-weight: 600; color: var(--fg-1); }
+.aiw-review-person :global(.r) { font-size: 12.5px; color: var(--fg-4); margin-top: 2px; }
+.aiw-review-quote { margin-left: auto; font-size: 40px; line-height: 1; color: var(--brand-purple-light); font-family: Georgia, serif; }
+
+/* ── FAQ accordion ────────────────────────────────────────── */
+.aiw-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.aiw-faq-item { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+.aiw-faq-item.open { border-color: var(--brand-purple-light); box-shadow: var(--shadow-md); }
+.aiw-faq-q { display: flex; align-items: center; gap: 16px; width: 100%; padding: 20px 24px; background: #fff; border: none; cursor: pointer; text-align: left; font-family: inherit; font-size: 16px; font-weight: 600; color: var(--fg-1); }
+.aiw-faq-q :global(.ic) { width: 30px; height: 30px; border-radius: 9px; background: var(--brand-purple-light); color: var(--brand-purple); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; transition: all .2s; }
+.aiw-faq-item.open .aiw-faq-q :global(.ic) { background: var(--brand-purple); color: #fff; transform: rotate(180deg); }
+.aiw-faq-q :global(.txt) { flex: 1; }
+.aiw-faq-a { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .3s var(--ease-out-quint), opacity .25s; }
+.aiw-faq-item.open .aiw-faq-a { max-height: 400px; opacity: 1; }
+.aiw-faq-a p { margin: 0; padding: 0 24px 22px 70px; font-size: 14.5px; line-height: 1.65; color: var(--fg-4); }
+
+/* ── Media strip ──────────────────────────────────────────── */
+.aiw-media-label { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 26px; }
+.aiw-media { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.aiw-media-card { background: var(--gray-50); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+.aiw-media-card :global(.src) { font-size: 16px; font-weight: 800; color: var(--fg-1); letter-spacing: -0.01em; }
+.aiw-media-card p { margin: 10px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--fg-4); }
+
+/* ── Market reality ───────────────────────────────────────── */
+.aiw-reality { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.aiw-rcard { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; box-shadow: var(--shadow-sm); overflow: hidden; transition: transform .25s var(--ease-out-quint), box-shadow .25s; }
+.aiw-rcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.aiw-rcard.risk::before { background: #EF4444; } .aiw-rcard.change::before { background: #F59E0B; } .aiw-rcard.opportunity::before { background: #10B981; }
+.aiw-rcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.aiw-rcard-ic { width: 54px; height: 54px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.aiw-rcard :global(.v) { font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.aiw-rcard :global(.t) { font-size: 17px; font-weight: 700; color: var(--fg-1); margin-top: 10px; }
+.aiw-rcard p { font-size: 13.5px; line-height: 1.6; color: var(--fg-4); margin: 8px 0 16px; }
+.aiw-rcard :global(.src) { font-size: 11.5px; font-weight: 600; color: var(--fg-3); display: flex; align-items: center; gap: 6px; }
+
+/* ── Curriculum modules ───────────────────────────────────── */
+.aiw-curric { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.aiw-cc { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px 22px; box-shadow: var(--shadow-sm); transition: transform .26s var(--ease-out-quint), box-shadow .26s, border-color .26s; }
+.aiw-cc:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); border-color: color-mix(in srgb, var(--c) 30%, var(--line)); }
+.aiw-cc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.aiw-cc-ic { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 21px; }
+.aiw-cc-num { font-size: 30px; font-weight: 800; color: color-mix(in srgb, var(--c) 18%, #fff); font-variant-numeric: tabular-nums; line-height: 1; }
+.aiw-cc h3 { font-size: 16.5px; font-weight: 600; color: var(--fg-1); margin: 0 0 5px; letter-spacing: -0.01em; }
+.aiw-cc-sub { font-size: 12.5px; font-weight: 600; color: var(--c); margin-bottom: 14px; }
+.aiw-cc ul { list-style: none; margin: 0; padding: 0; }
+.aiw-cc li { display: flex; gap: 8px; align-items: flex-start; font-size: 12.8px; color: var(--fg-2); line-height: 1.45; margin-bottom: 8px; }
+.aiw-cc li i { color: var(--success); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+
+/* ── Why join 10-grid ─────────────────────────────────────── */
+.aiw-why10 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.aiw-w10 { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; box-shadow: var(--shadow-sm); transition: transform .22s var(--ease-out-quint), box-shadow .22s; }
+.aiw-w10:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.aiw-w10-ic { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
+.aiw-w10 h4 { font-size: 15px; font-weight: 600; color: var(--fg-1); margin: 0 0 6px; }
+.aiw-w10 p { font-size: 12.5px; line-height: 1.5; color: var(--fg-4); margin: 0; }
+
+/* ── Bonuses ──────────────────────────────────────────────── */
+.aiw-bonus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.aiw-bonus-card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px; box-shadow: var(--shadow-sm); transition: transform .25s var(--ease-out-quint), box-shadow .25s; }
+.aiw-bonus-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.aiw-bonus-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.aiw-bonus-top :global(.badge) { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--brand-purple); background: var(--brand-purple-light); padding: 5px 12px; border-radius: 999px; }
+.aiw-bonus-top :global(.worth) { font-size: 13px; font-weight: 700; color: var(--fg-3); text-decoration: line-through; }
+.aiw-bonus-ic { width: 54px; height: 54px; border-radius: 15px; background: var(--grad-orange); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+.aiw-bonus-card h4 { font-size: 17px; font-weight: 600; color: var(--fg-1); margin: 0 0 8px; letter-spacing: -0.01em; }
+.aiw-bonus-card p { font-size: 13.5px; line-height: 1.6; color: var(--fg-4); margin: 0; }
+.aiw-bonus-total { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 28px; background: var(--ink); border-radius: 18px; padding: 24px 32px; flex-wrap: wrap; }
+.aiw-bonus-total :global(.lbl) { font-size: 13px; color: rgba(255,255,255,0.6); margin-right: 12px; }
+.aiw-bonus-total :global(.amt) { font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.aiw-bonus-total :global(.free) { font-size: 13px; font-weight: 700; color: #fff; background: var(--success); padding: 8px 16px; border-radius: 999px; }
+
+/* ── Outcomes grid ────────────────────────────────────────── */
+.aiw-outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+/* ── Certificate ──────────────────────────────────────────── */
+.aiw-cert { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.aiw-cert-media { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-xl); background: var(--gray-100); }
+.aiw-cert-media img { width: 100%; height: auto; display: block; }
+.aiw-cert-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.aiw-cert-points li { display: flex; gap: 11px; align-items: center; font-size: 15px; color: var(--fg-2); }
+.aiw-cert-points li i { color: var(--success); font-size: 16px; }
+
+/* ── Trainers ─────────────────────────────────────────────── */
+.aiw-trainers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.aiw-trainer { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 30px 22px; box-shadow: var(--shadow-sm); transition: transform .25s var(--ease-out-quint), box-shadow .25s; }
+.aiw-trainer:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.aiw-trainer-av { width: 74px; height: 74px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: #fff; margin: 0 auto 16px; box-shadow: var(--shadow-md); }
+.aiw-trainer :global(.n) { font-size: 16.5px; font-weight: 700; color: var(--fg-1); }
+.aiw-trainer :global(.role) { font-size: 12.5px; color: var(--fg-4); margin-top: 5px; line-height: 1.4; min-height: 34px; }
+.aiw-trainer :global(.meta) { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 8px; font-size: 11.5px; font-weight: 600; color: var(--fg-2); }
+.aiw-trainer :global(.meta i) { color: var(--brand-purple); }
+.aiw-trainer :global(.meta .dot) { color: var(--gray-300); }
+.aiw-trainer-soc { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+.aiw-trainer-soc a { width: 32px; height: 32px; border-radius: 9px; background: var(--gray-100); color: var(--fg-4); display: flex; align-items: center; justify-content: center; font-size: 13px; cursor: pointer; transition: all .18s; }
+.aiw-trainer-soc a:hover { background: var(--brand-purple); color: #fff; }
+
+/* ── CTA price + assurance ────────────────────────────────── */
+.aiw-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.aiw-cta-price { display: inline-flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+.aiw-cta-price :global(.now) { font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.aiw-cta-price :global(.was) { font-size: 20px; color: rgba(255,255,255,0.5); text-decoration: line-through; }
+.aiw-cta-price :global(.off) { font-size: 12px; font-weight: 700; color: #fff; background: var(--success); padding: 5px 12px; border-radius: 999px; }
+.aiw-cta-assure { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+.aiw-cta-assure span { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: rgba(255,255,255,0.8); }
+.aiw-cta-assure i { color: var(--brand-primary-light); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .aiw-tools { grid-template-columns: repeat(3, 1fr); }
+  .aiw-curric { grid-template-columns: repeat(2, 1fr); }
+  .aiw-why10 { grid-template-columns: repeat(3, 1fr); }
+  .aiw-trainers { grid-template-columns: repeat(2, 1fr); }
+  .aiw-outcomes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .aiw-hero { padding: 64px 0 72px; }
+  .aiw-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .aiw-hero-card { max-width: 460px; }
+  .aiw-reviews { grid-template-columns: 1fr; }
+  .aiw-tools { grid-template-columns: repeat(2, 1fr); }
+  .aiw-media { grid-template-columns: 1fr; }
+  .aiw-reality { grid-template-columns: 1fr; }
+  .aiw-why10 { grid-template-columns: repeat(2, 1fr); }
+  .aiw-bonus { grid-template-columns: 1fr; }
+  .aiw-cert { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 560px) {
+  .aiw-session { grid-template-columns: 1fr; }
+  .aiw-faq-a p { padding-left: 24px; }
+  .aiw-curric, .aiw-why10, .aiw-trainers, .aiw-outcomes { grid-template-columns: 1fr; }
+}

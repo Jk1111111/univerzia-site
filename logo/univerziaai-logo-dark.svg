@@ -1,0 +1,35 @@
+<svg viewBox="0 0 552 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Univerzia AI">
+  <defs>
+    <linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9373F0"/>
+      <stop offset="1" stop-color="#6E4AD0"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C4DF5"/>
+      <stop offset="1" stop-color="#6A45D1"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(12,20)">
+    <rect width="80" height="80" rx="20" fill="url(#iconGrad)"/>
+    <path d="M 29 25 L 29 46 A 11.5 11.5 0 0 0 51 46 L 51 25" fill="none" stroke="#ffffff" stroke-width="6.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="40" cy="43" r="2.6" fill="#ffffff"/>
+  </g>
+  <g transform="translate(108,89)" fill="#FFFFFF">
+    <path transform="translate(0.00,0) scale(0.08000,-0.08000)" d="M359 -12Q273 -12 206.5 24.0Q140 60 102.0 123.0Q64 186 64 266V745H200V273Q200 227 220.5 190.0Q241 153 277.0 132.5Q313 112 359 112Q406 112 441.5 132.5Q477 153 497.5 190.0Q518 227 518 273V745H654V266Q654 186 616.0 123.0Q578 60 511.5 24.0Q445 -12 359 -12Z"/>
+    <path transform="translate(57.44,0) scale(0.08000,-0.08000)" d="M61 0V544H184V437L174 456Q193 505 236.5 530.5Q280 556 338 556Q398 556 444.5 530.0Q491 504 517.0 457.5Q543 411 543 350V0H412V319Q412 355 398.0 381.0Q384 407 359.5 421.5Q335 436 302 436Q270 436 245.0 421.5Q220 407 206.0 381.0Q192 355 192 319V0Z"/>
+    <path transform="translate(104.88,0) scale(0.08000,-0.08000)" d="M61 0V544H192V0ZM61 605V745H192V605Z"/>
+    <path transform="translate(125.04,0) scale(0.08000,-0.08000)" d="M225 0 11 544H154L309 116H256L412 544H555L341 0Z"/>
+    <path transform="translate(170.32,0) scale(0.08000,-0.08000)" d="M319 -12Q235 -12 172.0 26.0Q109 64 74.0 129.0Q39 194 39 273Q39 355 74.5 418.5Q110 482 171.5 519.0Q233 556 309 556Q373 556 421.5 535.0Q470 514 504.0 477.0Q538 440 556.0 392.5Q574 345 574 290Q574 276 572.5 261.0Q571 246 567 235H147V335H493L431 288Q440 334 426.5 370.0Q413 406 382.5 427.0Q352 448 309 448Q268 448 236.0 427.5Q204 407 187.5 367.5Q171 328 175 272Q171 222 188.5 183.5Q206 145 240.5 124.0Q275 103 320 103Q365 103 396.5 122.0Q428 141 446 173L552 121Q536 82 502.0 52.0Q468 22 421.5 5.0Q375 -12 319 -12Z"/>
+    <path transform="translate(219.28,0) scale(0.08000,-0.08000)" d="M61 0V544H184V423L174 441Q193 502 233.5 526.0Q274 550 331 550H363V434H316Q260 434 226.0 399.5Q192 365 192 303V0Z"/>
+    <path transform="translate(249.20,0) scale(0.08000,-0.08000)" d="M14 0V106L330 472L350 427H28V544H466V437L156 71L136 116H468V0Z"/>
+    <path transform="translate(287.68,0) scale(0.08000,-0.08000)" d="M61 0V544H192V0ZM61 605V745H192V605Z"/>
+    <path transform="translate(307.84,0) scale(0.08000,-0.08000)" d="M226 -12Q169 -12 127.0 7.0Q85 26 62.0 61.5Q39 97 39 144Q39 189 59.0 224.5Q79 260 121.0 284.0Q163 308 227 318L405 347V247L252 221Q213 214 194.0 196.0Q175 178 175 149Q175 121 196.5 104.5Q218 88 250 88Q291 88 322.5 105.5Q354 123 371.5 154.0Q389 185 389 222V362Q389 397 361.5 420.5Q334 444 289 444Q247 444 214.5 421.5Q182 399 167 362L60 414Q76 457 110.5 488.5Q145 520 192.0 538.0Q239 556 294 556Q361 556 412.0 531.5Q463 507 491.5 463.5Q520 420 520 362V0H396V93L424 95Q403 60 374.0 36.5Q345 13 308.0 0.5Q271 -12 226 -12Z"/>
+  </g>
+  <g>
+    <rect x="480.2" y="41.0" width="57.7" height="38" rx="11" fill="url(#badgeGrad)"/>
+    <g transform="translate(495.2,70.0)" fill="#ffffff">
+      <path transform="translate(0.00,0) scale(0.02800,-0.02800)" d="M11 0 268 745H444L701 0H553L500 160H212L158 0ZM251 280H461L337 651H375Z"/>
+      <path transform="translate(19.94,0) scale(0.02800,-0.02800)" d="M72 0V745H208V0Z"/>
+    </g>
+  </g>
+</svg>
