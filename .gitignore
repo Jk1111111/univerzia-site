@@ -1,0 +1,3 @@
+.deploy-backups/
+.deploy.lock
+.deploy.log
