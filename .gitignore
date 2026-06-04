@@ -1,3 +1,4 @@
 .deploy-backups/
 .deploy.lock
 .deploy.log
+frontend/.env

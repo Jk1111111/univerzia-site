@@ -45,29 +45,60 @@ function validate(f: FormState): Errors {
   return e;
 }
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function ContactForm() {
   const [form, setForm] = useState(initial);
   const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [serverError, setServerError] = useState("");
 
   const set = (field: keyof FormState, value: string | boolean) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate(form);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
-    setSubmitted(true);
+
+    setStatus("submitting");
+    setServerError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim().toLowerCase(),
+          phone: form.phone.trim() || undefined,
+          topic: form.topic,
+          message: form.message.trim(),
+        }),
+      });
+
+      if (res.ok || res.status === 409) {
+        setStatus("success");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setServerError(data.error || "Something went wrong. Please try again.");
+        setStatus("error");
+      }
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+      setStatus("error");
+    }
   };
 
   const reset = () => {
     setForm(initial);
     setErrors({});
-    setSubmitted(false);
+    setStatus("idle");
+    setServerError("");
   };
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className={s["co-card-pad"]}>
         <div className={s["co-success"]}>
@@ -189,14 +220,39 @@ export default function ContactForm() {
             I agree that Univerzia AI may store my details and contact me about
             this enquiry.
           </label>
-          <button type="submit" className="u-btn u-btn--primary">
-            Send Message <i className="fa-solid fa-paper-plane" />
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="u-btn u-btn--primary"
+            style={{ opacity: status === "submitting" ? 0.6 : 1 }}
+          >
+            {status === "submitting" ? (
+              <>
+                <i className="fa-solid fa-spinner fa-spin" /> Sending…
+              </>
+            ) : (
+              <>
+                Send Message <i className="fa-solid fa-paper-plane" />
+              </>
+            )}
           </button>
         </div>
         {errors.consent && (
           <span className={s["co-err"]} style={{ gridColumn: "span 2" }}>
             {errors.consent}
           </span>
+        )}
+        {status === "error" && serverError && (
+          <div
+            className="text-[13px]"
+            style={{
+              gridColumn: "span 2",
+              color: "var(--danger-dark)",
+              marginTop: 8,
+            }}
+          >
+            {serverError}
+          </div>
         )}
       </form>
     </div>

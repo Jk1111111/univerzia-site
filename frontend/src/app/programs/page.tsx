@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Section, Button } from "@/components/ui";
 import { cn } from "@/lib/utils/cn";
+import { useLeadModal } from "@/contexts/LeadModalContext";
 import {
   courses,
   categories,
@@ -75,6 +76,7 @@ function CatalogHero() {
 
 /* ── Course card ──────────────────────────────────────────── */
 function CourseCard({ c, onOpen }: { c: Course; onOpen: (c: Course) => void }) {
+  const { open: openLeadModal } = useLeadModal();
   const m = mentors[c.mentor];
   const lvlColor = LEVELS[c.level];
   return (
@@ -129,7 +131,7 @@ function CourseCard({ c, onOpen }: { c: Course; onOpen: (c: Course) => void }) {
             className={styles["pc-enroll"]}
             onClick={(e) => {
               e.stopPropagation();
-              onOpen(c);
+              openLeadModal({ source: "programs-card", program: c.title, ctaType: "enroll" });
             }}
           >
             Enroll Now
@@ -142,6 +144,7 @@ function CourseCard({ c, onOpen }: { c: Course; onOpen: (c: Course) => void }) {
 
 /* ── Detail modal ─────────────────────────────────────────── */
 function CourseModal({ c, onClose }: { c: Course; onClose: () => void }) {
+  const { open: openLeadModal } = useLeadModal();
   const m = mentors[c.mentor];
   const [open, setOpen] = useState<number[]>(c.curriculum ? [0] : []);
 
@@ -272,8 +275,10 @@ function CourseModal({ c, onClose }: { c: Course; onClose: () => void }) {
             </div>
           </div>
           <div className={styles.acts}>
-            <Button variant="outline">Download Syllabus</Button>
-            <Button variant="primary">
+            <Button variant="outline" onClick={() => { onClose(); openLeadModal({ source: "programs-modal", program: c.title, ctaType: "download-syllabus" }); }}>
+              Download Syllabus
+            </Button>
+            <Button variant="primary" onClick={() => { onClose(); openLeadModal({ source: "programs-modal", program: c.title, ctaType: "enroll" }); }}>
               Enroll Now <i className="fa-solid fa-arrow-right" />
             </Button>
           </div>

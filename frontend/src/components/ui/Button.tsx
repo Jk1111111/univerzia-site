@@ -1,13 +1,16 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 type Variant = "primary" | "brand" | "ghost-dark" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = {
   variant?: Variant;
   size?: Size;
-}
+  href?: string;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "href"> &
+  Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "rel">;
 
 const base =
   "inline-flex items-center gap-[9px] font-sans font-semibold border-none rounded-[10px] cursor-pointer no-underline whitespace-nowrap transition-all duration-200";
@@ -34,15 +37,29 @@ const sizes: Record<Size, string> = {
 export default function Button({
   variant = "primary",
   size = "md",
+  href,
   className,
   children,
   ...props
 }: ButtonProps) {
+  const cls = cn(base, variants[variant], sizes[size], className);
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cls}
+        style={props.style}
+        target={(props as AnchorHTMLAttributes<HTMLAnchorElement>).target}
+        rel={(props as AnchorHTMLAttributes<HTMLAnchorElement>).rel}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...props}
-    >
+    <button className={cls} {...props}>
       {children}
     </button>
   );

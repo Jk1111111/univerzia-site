@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  city        String?
+  program     String
+  source      String
+  ctaType     String
+  submittedAt DateTime @default(now())
+
+  @@index([email, ctaType])
+}
+
+model Contact {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String?
+  topic       String
+  message     String   @db.Text
+  submittedAt DateTime @default(now())
+
+  @@index([email])
+}

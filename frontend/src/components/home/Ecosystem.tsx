@@ -30,12 +30,12 @@ export default function Ecosystem() {
         </div>
 
         {/* Flow */}
-        <div className="flex flex-wrap justify-center items-stretch u-reveal">
+        <div className="flex flex-wrap justify-center items-stretch gap-y-5 u-reveal">
           {ecosystem.map((node, i) => (
             <div key={node.t} className="flex items-center">
               {/* Node */}
               <div
-                className="flex-1 min-w-[150px] bg-white rounded-[16px] p-[22px_18px] text-center
+                className="w-[230px] bg-white rounded-[16px] p-[22px_18px] text-center
                            transition-all duration-[250ms] cursor-default
                            hover:-translate-y-1 hover:shadow-lg"
                 style={{

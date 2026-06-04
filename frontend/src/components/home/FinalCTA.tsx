@@ -1,6 +1,11 @@
+"use client";
+
 import { Section, Button } from "@/components/ui";
+import { useLeadModal } from "@/contexts/LeadModalContext";
 
 export default function FinalCTA() {
+  const { open } = useLeadModal();
+
   return (
     <Section id="cta" className="py-24 max-[860px]:py-16" style={{ background: "var(--app-bg)" }}>
       <div className="max-w-[1240px] mx-auto px-8 max-[860px]:px-[22px]">
@@ -49,10 +54,20 @@ export default function FinalCTA() {
             </p>
 
             <div className="flex flex-wrap gap-[14px] justify-center">
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" href="/programs">
                 Start Learning Free <i className="fa-solid fa-arrow-right" />
               </Button>
-              <Button variant="ghost-dark" size="lg">
+              <Button
+                variant="ghost-dark"
+                size="lg"
+                onClick={() =>
+                  open({
+                    source: "homepage-final-cta",
+                    program: "Free Career Consultation",
+                    ctaType: "book-consultation",
+                  })
+                }
+              >
                 Book Free Career Consultation
               </Button>
             </div>

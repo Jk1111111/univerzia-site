@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { tabs, programs } from "@/lib/data/homepage";
 import { Section, Button, IconChip } from "@/components/ui";
+import { useLeadModal } from "@/contexts/LeadModalContext";
 
 export default function FeaturedPrograms() {
   const [active, setActive] = useState(tabs[0].id);
   const cards = programs[active] ?? [];
+  const { open } = useLeadModal();
 
   return (
     <Section id="programs" className="py-24 max-[860px]:py-16" style={{ background: "#fff" }}>
@@ -110,7 +112,12 @@ export default function FeaturedPrograms() {
               </ul>
 
               {/* CTA */}
-              <Button variant="outline" size="sm" className="w-full justify-center">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full justify-center"
+                onClick={() => open({ source: "homepage-programs", program: prog.t, ctaType: "learn-more" })}
+              >
                 Learn More <i className="fa-solid fa-arrow-right text-[11px]" />
               </Button>
             </div>
@@ -119,7 +126,7 @@ export default function FeaturedPrograms() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-10 u-reveal">
-          <Button variant="brand" size="lg">
+          <Button variant="brand" size="lg" href="/programs">
             View All Programs <i className="fa-solid fa-arrow-right" />
           </Button>
         </div>

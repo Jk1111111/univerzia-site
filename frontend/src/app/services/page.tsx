@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
+import LeadCTAButton from "@/components/ui/LeadCTAButton";
 import { cn } from "@/lib/utils/cn";
 import { hub } from "@/lib/data/services";
 import type { CtaAction } from "@/lib/data/services";
@@ -51,12 +52,12 @@ function HubHero() {
           </h1>
           <p>{H.sub}</p>
           <div className={styles["svc-hub-hero-cta"]}>
-            <a className="u-btn u-btn--primary u-btn--lg" href="#contact">
+            <LeadCTAButton className="u-btn u-btn--primary u-btn--lg" source="services-hero" ctaType="book-demo">
               {H.primary.label} <i className="fa-solid fa-arrow-right" />
-            </a>
-            <a className="u-btn u-btn--ghost-dark u-btn--lg" href="#contact">
+            </LeadCTAButton>
+            <LeadCTAButton className="u-btn u-btn--ghost-dark u-btn--lg" source="services-hero" ctaType="talk-to-sales">
               {H.secondary.label}
-            </a>
+            </LeadCTAButton>
           </div>
         </div>
       </div>
@@ -211,12 +212,12 @@ function HubCTA() {
             <p>{C.sub}</p>
             <div className={styles["svc-cta-actions"]}>
               {C.actions.map((a) => (
-                <a key={a.label} className={ctaButtonClass(a.style)} href="#contact">
+                <LeadCTAButton key={a.label} className={ctaButtonClass(a.style)} source="services-cta" ctaType={a.label.toLowerCase().replace(/\s+/g, "-")}>
                   {a.label}
                   {a.style === "primary" ? (
                     <i className="fa-solid fa-arrow-right" />
                   ) : null}
-                </a>
+                </LeadCTAButton>
               ))}
             </div>
           </div>

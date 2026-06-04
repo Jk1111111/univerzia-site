@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Nav, Footer } from "@/components/layout";
+import LeadModalProvider from "@/contexts/LeadModalContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -75,9 +76,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Nav />
-        {children}
-        <Footer />
+        <LeadModalProvider>
+          <Nav />
+          {children}
+          <Footer />
+        </LeadModalProvider>
       </body>
     </html>
   );

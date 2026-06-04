@@ -48,7 +48,7 @@ export default function Workshops() {
 
         {/* CTA */}
         <div className="text-center mt-10 u-reveal">
-          <Button variant="brand" size="lg">
+          <Button variant="brand" size="lg" href="/ai-workshops">
             Explore all AI Workshops <i className="fa-solid fa-arrow-right" />
           </Button>
         </div>

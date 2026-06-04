@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
+import LeadCTAButton from "@/components/ui/LeadCTAButton";
 import { cn } from "@/lib/utils/cn";
 import { aiWorkshops as D } from "@/lib/data/aiWorkshops";
 import Faq from "./Faq";
@@ -69,9 +70,9 @@ function Hero() {
             ))}
           </div>
           <div className={styles["aiw-hero-cta"]}>
-            <a className="u-btn u-btn--primary u-btn--lg" href="#join">
+            <LeadCTAButton className="u-btn u-btn--primary u-btn--lg" source="ai-workshops-hero" program="AI Tools & Prompt Engineering Workshop" ctaType="reserve-seat">
               Reserve My Seat <i className="fa-solid fa-arrow-right" />
-            </a>
+            </LeadCTAButton>
             <a className="u-btn u-btn--ghost-dark u-btn--lg" href="#curriculum">
               View Curriculum
             </a>
@@ -125,9 +126,9 @@ function Hero() {
             <span className="was">{C.priceWas}</span>
             <span className="off">{C.off}</span>
           </div>
-          <a className="u-btn u-btn--primary" href="#join">
+          <LeadCTAButton className="u-btn u-btn--primary" source="ai-workshops-card" program="AI Tools & Prompt Engineering Workshop" ctaType="reserve-seat">
             Reserve My Seat <i className="fa-solid fa-arrow-right" />
-          </a>
+          </LeadCTAButton>
           <div className={styles["aiw-card-note"]}>
             <i className="fa-solid fa-lock" style={{ fontSize: 10 }} /> Limited seats ·
             Certificate included · Lifetime access
@@ -405,13 +406,15 @@ function Certificate() {
                 </li>
               ))}
             </ul>
-            <a
+            <LeadCTAButton
               className="u-btn u-btn--brand u-btn--lg"
-              href="#join"
+              source="ai-workshops-certificate"
+              program="AI Tools & Prompt Engineering Workshop"
+              ctaType="get-certified"
               style={{ marginTop: 28 }}
             >
               Get Certified <i className="fa-solid fa-arrow-right" />
-            </a>
+            </LeadCTAButton>
           </div>
         </div>
       </div>
@@ -527,9 +530,9 @@ function FinalCTA() {
             <h2>{C.title}</h2>
             <p>{C.sub}</p>
             <div className={styles["aiw-cta-row"]}>
-              <a className="u-btn u-btn--primary u-btn--lg" href="#join">
+              <LeadCTAButton className="u-btn u-btn--primary u-btn--lg" source="ai-workshops-cta" program="AI Tools & Prompt Engineering Workshop" ctaType="reserve-seat">
                 Reserve My Seat <i className="fa-solid fa-arrow-right" />
-              </a>
+              </LeadCTAButton>
               <Link className="u-btn u-btn--ghost-dark u-btn--lg" href="/programs">
                 Explore Full Programs
               </Link>

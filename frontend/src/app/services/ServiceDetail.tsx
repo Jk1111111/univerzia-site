@@ -1,4 +1,5 @@
 import Section from "@/components/ui/Section";
+import LeadCTAButton from "@/components/ui/LeadCTAButton";
 import { cn } from "@/lib/utils/cn";
 import ServiceFaq from "./ServiceFaq";
 import styles from "./services.module.css";
@@ -228,9 +229,9 @@ function SvcHero({ s }: { s: ServiceDetailData }) {
             ))}
           </div>
           <div className={styles["svc-hero-cta"]}>
-            <a className="u-btn u-btn--svc u-btn--lg" href="#cta">
+            <LeadCTAButton className="u-btn u-btn--svc u-btn--lg" source="service-hero" program={s.navLabel} ctaType={h.primary.label.toLowerCase().replace(/\s+/g, "-")}>
               {h.primary.label} <i className="fa-solid fa-arrow-right" />
-            </a>
+            </LeadCTAButton>
             <a className="u-btn u-btn--svc-soft u-btn--lg" href="#features">
               {h.secondary.label}
             </a>
@@ -283,9 +284,9 @@ function SubNav({ s }: { s: ServiceDetailData }) {
             {label}
           </a>
         ))}
-        <a className="sub-cta" href="#cta">
+        <LeadCTAButton className="sub-cta" source="service-subnav" program={s.navLabel} ctaType={s.product ? "book-demo" : "get-started"}>
           {s.product ? "Book a Demo" : "Get Started"}
-        </a>
+        </LeadCTAButton>
       </div>
     </div>
   );
@@ -640,7 +641,7 @@ function FaqSection({
 }
 
 /* ── Final CTA ────────────────────────────────────────────── */
-function FinalCTA({ block }: { block: ServiceDetailData["cta"] }) {
+function FinalCTA({ block, serviceName }: { block: ServiceDetailData["cta"]; serviceName: string }) {
   return (
     <Section id="cta" className={styles["svc-section"]}>
       <div className="u-wrap">
@@ -650,9 +651,8 @@ function FinalCTA({ block }: { block: ServiceDetailData["cta"] }) {
             <p>{block.sub}</p>
             <div className={styles["svc-cta-actions"]}>
               {block.actions.map((a) => (
-                <a
+                <LeadCTAButton
                   key={a.label}
-                  href="#cta"
                   className={
                     "u-btn u-btn--lg " +
                     (a.style === "primary"
@@ -661,12 +661,15 @@ function FinalCTA({ block }: { block: ServiceDetailData["cta"] }) {
                         ? "u-btn--brand"
                         : "u-btn--ghost-dark")
                   }
+                  source="service-cta"
+                  program={serviceName}
+                  ctaType={a.label.toLowerCase().replace(/\s+/g, "-")}
                 >
                   {a.label}
                   {a.style === "primary" ? (
                     <i className="fa-solid fa-arrow-right" />
                   ) : null}
-                </a>
+                </LeadCTAButton>
               ))}
             </div>
           </div>
@@ -735,7 +738,7 @@ export default function ServiceDetail({ s }: { s: ServiceDetailData }) {
       <SubNav s={s} />
       <StatBar s={s} />
       {sections}
-      <FinalCTA block={s.cta} />
+      <FinalCTA block={s.cta} serviceName={s.navLabel} />
     </main>
   );
 }
