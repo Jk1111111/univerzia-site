@@ -3,8 +3,7 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const ADMIN_EMAIL = "gautam.shukla@univerziaai.in";
-const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "Univerzia AI <onboarding@resend.dev>";
+const FROM_EMAIL = "Univerzia AI <noreply@univerziaai.in>";
 
 /* ── helpers ─────────────────────────────────────────────────── */
 
