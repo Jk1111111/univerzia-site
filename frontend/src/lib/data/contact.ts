@@ -35,6 +35,7 @@ export interface Social {
   ic: string;
   title: string;
   href: string;
+  brand: boolean;
 }
 
 export interface ContactInfo {
@@ -62,6 +63,8 @@ export interface QuickCard {
   p: string;
   lnk: string;
   href: string;
+  ctaType: string;
+  program?: string;
 }
 
 export interface MapDetail {
@@ -125,14 +128,14 @@ export const contactInfo: ContactInfo = {
   rows: [
     { ic: "fa-envelope", k: "Email", v: "gautam.shukla@univerziaai.in", href: "mailto:gautam.shukla@univerziaai.in" },
     { ic: "fa-phone", k: "Phone", v: "+91 95110 16762", href: "tel:+919511016762" },
-    { ic: "fa-location-dot", k: "Office", v: "Awas Vikas Colony, Daulatpur, Pandeypur, Varanasi 221002, UP, India" },
+    { ic: "fa-location-dot", k: "Office", v: "Varanasi, Uttar Pradesh, India" },
     { ic: "fa-clock", k: "Business Hours", v: "Mon–Sat, 10:00 AM – 7:00 PM IST" },
   ],
   socials: [
-    { ic: "fa-linkedin-in", title: "LinkedIn", href: "#" },
-    { ic: "fa-instagram", title: "Instagram", href: "#" },
-    { ic: "fa-x-twitter", title: "X", href: "#" },
-    { ic: "fa-facebook-f", title: "Facebook", href: "#" },
+    { ic: "fa-linkedin-in", title: "LinkedIn", href: "https://www.linkedin.com/company/univerziaai/?viewAsMember=true", brand: true },
+    { ic: "fa-instagram", title: "Instagram", href: "https://www.instagram.com/univerzia.ai/", brand: true },
+    { ic: "fa-x-twitter", title: "X", href: "https://x.com/UniverziaA86401", brand: true },
+    { ic: "fa-envelope", title: "Email", href: "mailto:gautam.shukla@univerziaai.in", brand: false },
   ],
 };
 
@@ -153,17 +156,17 @@ export const contactQuick: { eyebrow: string; title: string; sub: string; items:
   title: "Skip the form — get moving now",
   sub: "Pick the fastest path to what you need.",
   items: [
-    { ic: "fa-display", grad: "var(--grad-orange)", c: "var(--brand-primary)", h: "Request a Demo", p: "See Univerzia LMS, ERP, or a custom build in action with a live, guided walkthrough.", lnk: "Book a Demo", href: "#contact-form" },
-    { ic: "fa-calendar-check", grad: "var(--grad-brand)", c: "var(--brand-purple)", h: "Schedule a Consultation", p: "Free career or project consultation with a mentor to map your next step.", lnk: "Book a Free Call", href: "#contact-form" },
-    { ic: "fa-headset", grad: "var(--grad-cyan)", c: "var(--cyan)", h: "Technical Support", p: "Already a learner or client? Get fast help from our support team.", lnk: "Get Support", href: "mailto:support@univerziaai.in" },
+    { ic: "fa-display", grad: "var(--grad-orange)", c: "var(--brand-primary)", h: "Request a Demo", p: "See Univerzia LMS, ERP, or a custom build in action with a live, guided walkthrough.", lnk: "Book a Demo", href: "#contact-form", ctaType: "book-demo" },
+    { ic: "fa-calendar-check", grad: "var(--grad-brand)", c: "var(--brand-purple)", h: "Schedule a Consultation", p: "Free career or project consultation with a mentor to map your next step.", lnk: "Book a Free Call", href: "#contact-form", ctaType: "book-consultation", program: "Free Career Consultation" },
+    { ic: "fa-headset", grad: "var(--grad-cyan)", c: "var(--cyan)", h: "Technical Support", p: "Already a learner or client? Get fast help from our support team.", lnk: "Get Support", href: "mailto:support@univerziaai.in", ctaType: "get-support" },
   ],
 };
 
 export const contactMap: MapData = {
   place: "Univerzia AI Pvt Ltd",
-  address: "Awas Vikas Colony, Daulatpur,\nPandeypur, Varanasi 221002,\nUttar Pradesh, India",
+  address: "Varanasi, Uttar Pradesh, India",
   details: [
-    { ic: "fa-location-dot", k: "Address", v: "Awas Vikas Colony, Pandeypur, Varanasi 221002" },
+    { ic: "fa-location-dot", k: "Address", v: "Varanasi, Uttar Pradesh, India" },
     { ic: "fa-clock", k: "Hours", v: "Mon–Sat · 10:00 AM – 7:00 PM IST" },
     { ic: "fa-car", k: "Getting here", v: "10 min from Varanasi Junction · parking available" },
   ],

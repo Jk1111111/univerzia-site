@@ -25,10 +25,10 @@ const FOOTER_HREFS: Record<string, string> = {
 };
 
 const SOCIALS = [
-  { icon: "fa-linkedin-in", title: "LinkedIn" },
-  { icon: "fa-instagram",   title: "Instagram" },
-  { icon: "fa-x-twitter",   title: "X" },
-  { icon: "fa-facebook-f",  title: "Facebook" },
+  { icon: "fa-linkedin-in", title: "LinkedIn", href: "https://www.linkedin.com/company/univerziaai/?viewAsMember=true", brand: true },
+  { icon: "fa-instagram",   title: "Instagram", href: "https://www.instagram.com/univerzia.ai/", brand: true },
+  { icon: "fa-x-twitter",   title: "X", href: "https://x.com/UniverziaA86401", brand: true },
+  { icon: "fa-envelope",    title: "Email", href: "mailto:gautam.shukla@univerziaai.in", brand: false },
 ];
 
 export default function Footer() {
@@ -52,17 +52,20 @@ export default function Footer() {
             </p>
             {/* Social icons */}
             <div className="flex gap-2.5 mt-5">
-              {SOCIALS.map(({ icon, title }) => (
+              {SOCIALS.map(({ icon, title, href, brand }) => (
                 <a
                   key={title}
+                  href={href}
                   title={title}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                   className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center
                              cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:text-white"
                   style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.80)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.background = "var(--brand-primary)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
                 >
-                  <i className={`fa-brands ${icon} text-[15px]`} />
+                  <i className={`${brand ? "fa-brands" : "fa-solid"} ${icon} text-[15px]`} />
                 </a>
               ))}
             </div>

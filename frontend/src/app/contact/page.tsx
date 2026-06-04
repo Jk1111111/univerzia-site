@@ -6,12 +6,12 @@ import {
   contactHero,
   contactInfo,
   contactDepartments,
-  contactQuick,
   contactMap,
   contactCta,
 } from "@/lib/data/contact";
 import ContactForm from "./ContactForm";
 import ContactFaq from "./ContactFaq";
+import QuickSupport from "./QuickSupport";
 import s from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -96,8 +96,14 @@ function FormAndInfo() {
 
               <div className={s["co-info-social"]}>
                 {info.socials.map((soc) => (
-                  <a key={soc.title} href={soc.href} title={soc.title}>
-                    <i className={`fa-brands ${soc.ic}`} />
+                  <a
+                    key={soc.title}
+                    href={soc.href}
+                    title={soc.title}
+                    target={soc.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={soc.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  >
+                    <i className={`${soc.brand ? "fa-brands" : "fa-solid"} ${soc.ic}`} />
                   </a>
                 ))}
               </div>
@@ -133,43 +139,6 @@ function Departments() {
               <p>{dept.p}</p>
               <a href={`mailto:${dept.email}`}>
                 {dept.email} <i className="fa-solid fa-arrow-right" />
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ── 4. Quick Support ────────────────────────────────────────── */
-function QuickSupport() {
-  const Q = contactQuick;
-  return (
-    <Section id="quick" className={s["co-section"]}>
-      <div className="u-wrap">
-        <div className={cn(s["co-head"], "u-reveal")}>
-          <Eyebrow text={Q.eyebrow} />
-          <h2 className={s["co-title"]}>{Q.title}</h2>
-          <p className={s["co-sub"]}>{Q.sub}</p>
-        </div>
-        <div className={cn(s["co-quick"], "u-reveal")}>
-          {Q.items.map((item) => (
-            <div
-              key={item.h}
-              className={s["co-quick-card"]}
-              style={{ "--c": item.c } as React.CSSProperties}
-            >
-              <div
-                className={s["co-quick-ic"]}
-                style={{ background: item.grad }}
-              >
-                <i className={`fa-solid ${item.ic}`} />
-              </div>
-              <h4>{item.h}</h4>
-              <p>{item.p}</p>
-              <a href={item.href} className="lnk" style={{ color: item.c }}>
-                {item.lnk} <i className="fa-solid fa-arrow-right" />
               </a>
             </div>
           ))}
