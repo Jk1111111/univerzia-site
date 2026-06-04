@@ -249,6 +249,8 @@ if [[ "$NEEDS_BUILD" == "true" && -f "${FRONTEND_DIR}/prisma/schema.prisma" ]]; 
   # Ensure node_modules binaries are executable before running npx
   find "${FRONTEND_DIR}/node_modules/.bin/" -type f -exec chmod 755 {} + 2>/dev/null || true
   find "${FRONTEND_DIR}/node_modules/.bin/" -type l -exec sh -c 'chmod 755 "$(readlink -f "$1")"' _ {} \; 2>/dev/null || true
+  # Prisma engine binaries also need execute permission
+  chmod 755 "${FRONTEND_DIR}/node_modules/@prisma/engines/"* 2>/dev/null || true
 
   log "Generating Prisma client..."
   if ! npx prisma generate; then
@@ -309,6 +311,8 @@ if [[ "$(id -u)" -eq 0 ]]; then
   # Fix both .bin/ symlinks AND actual target binaries they point to
   find "${FRONTEND_DIR}/node_modules/.bin/" -type f -exec chmod 755 {} + 2>/dev/null || true
   find "${FRONTEND_DIR}/node_modules/.bin/" -type l -exec sh -c 'chmod 755 "$(readlink -f "$1")"' _ {} \; 2>/dev/null || true
+  # Prisma engine binaries need execute permission
+  chmod 755 "${FRONTEND_DIR}/node_modules/@prisma/engines/"* 2>/dev/null || true
   log_ok "Permissions set (www-data:www-data)"
 else
   log "Running as non-root — skipping permission changes"

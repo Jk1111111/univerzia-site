@@ -5,7 +5,7 @@
 
 */
 -- AlterTable
-ALTER TABLE `lead` MODIFY `phone` VARCHAR(191) NOT NULL;
+ALTER TABLE `Lead` MODIFY `phone` VARCHAR(191) NOT NULL;
 
 -- CreateTable
 CREATE TABLE `Contact` (
