@@ -243,6 +243,32 @@ else
 fi
 
 # ════════════════════════════════════════════════════════════════
+# Phase 4b: Prisma generate + migrate (conditional)
+# ════════════════════════════════════════════════════════════════
+if [[ "$NEEDS_BUILD" == "true" && -f "${FRONTEND_DIR}/prisma/schema.prisma" ]]; then
+  # Ensure node_modules binaries are executable before running npx
+  find "${FRONTEND_DIR}/node_modules/.bin/" -type f -exec chmod 755 {} + 2>/dev/null || true
+  find "${FRONTEND_DIR}/node_modules/.bin/" -type l -exec sh -c 'chmod 755 "$(readlink -f "$1")"' _ {} \; 2>/dev/null || true
+
+  log "Generating Prisma client..."
+  if ! npx prisma generate; then
+    log_err "Prisma generate failed"
+    cd "$REPO_ROOT"
+    git reset --hard "$OLD_COMMIT" --quiet 2>/dev/null || true
+    exit 1
+  fi
+  log_ok "Prisma client generated"
+
+  log "Running database migrations..."
+  if ! npx prisma migrate deploy; then
+    log_err "Prisma migrate failed — check database connection and .env credentials"
+    log_err "WARNING: Database may be in a partial migration state. Do NOT rollback git."
+    exit 1
+  fi
+  log_ok "Database migrations applied"
+fi
+
+# ════════════════════════════════════════════════════════════════
 # Phase 5: Build
 # ════════════════════════════════════════════════════════════════
 # Ensure node_modules binaries are executable (may have been stripped by chmod 644)
