@@ -1,4 +1,5 @@
 import prisma from "@/lib/db";
+import { notifyNewLead } from "@/lib/email";
 
 interface LeadBody {
   name: string;
@@ -68,6 +69,11 @@ export async function POST(request: Request) {
     }
 
     const lead = await prisma.lead.create({ data });
+
+    // Fire-and-forget: email failure doesn't block the response
+    notifyNewLead(data).catch((err) =>
+      console.error("Lead notification failed:", err)
+    );
 
     return Response.json({ ok: true, id: lead.id });
   } catch (err) {

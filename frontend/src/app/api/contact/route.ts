@@ -1,4 +1,5 @@
 import prisma from "@/lib/db";
+import { notifyNewContact } from "@/lib/email";
 
 interface ContactBody {
   name: string;
@@ -59,6 +60,11 @@ export async function POST(request: Request) {
     }
 
     const contact = await prisma.contact.create({ data });
+
+    // Fire-and-forget: email failure doesn't block the response
+    notifyNewContact(data).catch((err) =>
+      console.error("Contact notification failed:", err)
+    );
 
     return Response.json({ ok: true, id: contact.id });
   } catch (err) {
