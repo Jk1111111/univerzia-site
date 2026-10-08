@@ -2,7 +2,8 @@ import { site } from "./site";
 
 export const footerData = {
   tagline: "Let's Build What's Next.",
-  description: site.description,
+  companyName: "univsia.ai",
+  description: site.description.replace(site.fullName, "univsia.ai"),
   columns: [
     {
       title: "Company",
@@ -18,8 +19,9 @@ export const footerData = {
       links: [
         { label: "STEM & Robotics", href: "/solutions/stem-robotics" },
         { label: "AI & Coding", href: "/solutions/ai-coding" },
-        { label: "IoT", href: "/solutions/iot" },
-        { label: "AR/VR", href: "/solutions/ar-vr" },
+        { label: "ERP", href: "https://app.univerziaai.in" },
+        // No dedicated LMS URL is configured yet.
+        { label: "LMS", href: "", placeholder: true },
         { label: "Innovation Labs", href: "/solutions/innovation-labs" },
         { label: "Teacher Training", href: "/solutions/teacher-training" },
         { label: "STEM Curriculum", href: "/solutions/stem-curriculum" },

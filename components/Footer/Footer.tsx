@@ -20,7 +20,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-flex rounded-xl bg-white px-3 py-2">
-              <Image src={site.logo} alt="Univerzia AI" width={184} height={40} className="h-10 w-auto" />
+              <Image src={site.logo} alt={footerData.companyName} width={184} height={40} className="h-10 w-auto" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/55">
               {footerData.description}
@@ -45,12 +45,18 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/55 transition-colors hover:text-cyan"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.placeholder ? (
+                      <span aria-disabled="true" className="text-sm text-white/55">
+                        {link.label}
+                      </span>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/55 transition-colors hover:text-cyan"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -104,7 +110,7 @@ export function Footer() {
       <MarqueeStrip />
 
       <Container className="relative flex flex-col items-center justify-between gap-3 border-t border-white/10 py-6 text-xs text-white/40 sm:flex-row">
-        <p>&copy; {new Date().getFullYear()} Univerzia STEM Labs. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {footerData.companyName}. All rights reserved.</p>
         <p>Designed for schools building what comes next.</p>
       </Container>
     </footer>

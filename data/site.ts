@@ -14,7 +14,7 @@ export const site = {
   offices: [
     { name: "Pune", line1: "Dhayari / DSK Vishwa Road", city: "Pune", state: "Maharashtra", postalCode: "411041", country: "India" },
     { name: "Varanasi", line1: "Pandeypur, Daulatpur", city: "Varanasi", state: "Uttar Pradesh", postalCode: "221002", country: "India" },
-    { name: "Bihariganj", line1: "Bihariganj", city: "Madhepura", state: "Bihar", postalCode: "852102", country: "India" },
+    { name: "Madhepura", line1: "NH 106, Singheshwar Road, Jajhat Sabaila, Majarhat", city: "Madhepura", state: "Bihar", postalCode: "852128", country: "India" },
   ],
   social: {
     linkedin: "#",
