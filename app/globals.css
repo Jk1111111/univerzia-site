@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  /* Neutrals */
+  --color-paper: #fbfbfe;
+  --color-paper-2: #f3f4fb;
+  --color-ink: #0b1220;
+  --color-ink-2: #10192e;
+  --color-muted: #5b6478;
+  --color-line: #e6e8f2;
+
+  /* Brand */
+  --color-navy: #0a1330;
+  --color-navy-2: #101c40;
+  --color-electric: #3457ff;
+  --color-electric-2: #6a8bff;
+  --color-cyan: #17c3d6;
+  --color-violet: #8b5cf6;
+  --color-green: #1fb178;
+  --color-amber: #f5a524;
+  --color-yellow: #ffc93c;
+  --color-orange: #ff7a45;
+
+  /* WCAG AA-safe (4.5:1+) variants for text/icons on light backgrounds */
+  --color-cyan-ink: #0e7490;
+  --color-violet-ink: #6d28d9;
+  --color-green-ink: #15803d;
+  --color-amber-ink: #b45309;
+  --color-yellow-ink: #854d0e;
+  --color-orange-ink: #c2410c;
+
+  --shadow-soft: 0 1px 2px rgba(10, 19, 48, 0.04), 0 8px 24px -8px rgba(10, 19, 48, 0.12);
+  --shadow-lift: 0 4px 8px rgba(10, 19, 48, 0.06), 0 24px 48px -16px rgba(10, 19, 48, 0.22);
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+
+  --color-navy: var(--color-navy);
+  --color-navy-2: var(--color-navy-2);
+  --color-electric: var(--color-electric);
+  --color-electric-2: var(--color-electric-2);
+  --color-cyan: var(--color-cyan);
+  --color-violet: var(--color-violet);
+  --color-green: var(--color-green);
+  --color-amber: var(--color-amber);
+  --color-yellow: var(--color-yellow);
+  --color-orange: var(--color-orange);
+  --color-cyan-ink: var(--color-cyan-ink);
+  --color-violet-ink: var(--color-violet-ink);
+  --color-green-ink: var(--color-green-ink);
+  --color-amber-ink: var(--color-amber-ink);
+  --color-yellow-ink: var(--color-yellow-ink);
+  --color-orange-ink: var(--color-orange-ink);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 38s linear infinite;
+  --animate-float-slow: float 7s ease-in-out infinite;
+  --animate-float-slower: float 10s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-electric);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1.5deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes drift {
+  to { stroke-dashoffset: -400; }
+}
+
+.animate-drift {
+  animation: drift 16s linear infinite;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Hides the scrollbar on a native horizontally-scrollable element (used by
+   PhotoJourney's edge-scrub gallery) without disabling scrolling itself —
+   trackpad/touch/drag and the scroll-triggered progress bar all still work,
+   only the visible scrollbar track is gone. */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-electric) 0%, var(--color-cyan) 50%, var(--color-violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(100deg, var(--color-orange) 0%, var(--color-amber) 50%, var(--color-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius, 120px)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius, 120px)) rotate(-360deg); }
+}
+
+.animate-orbit {
+  animation: orbit 18s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+/* Shared machine-illustration motion (ScenePanel, and anywhere else that
+   wants the same "premium robotics" idle language) — kept here once instead
+   of duplicated per-component, since every page mounts the footer (and thus
+   would otherwise need its own copy of these keyframes just to reuse them). */
+@keyframes pf-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.pf-rotate { animation: pf-rotate var(--pf-rot-duration, 14s) linear infinite; transform-box: fill-box; transform-origin: center; }
+
+@keyframes pf-float { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(0,-4px); } }
+.pf-float { animation: pf-float 5s ease-in-out infinite; }
+
+@keyframes pf-glow { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+.pf-glow { animation: pf-glow 2.6s ease-in-out infinite; }
+
+@keyframes pf-dash { to { stroke-dashoffset: -24; } }
+.pf-dash { animation: pf-dash 2.2s linear infinite; }
+
+@keyframes pf-travel { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+.pf-travel { animation: pf-travel 3.5s linear infinite; opacity: 0; }
+
+/* Custom cursor (components/ui/Cursor.tsx) adds this class only after
+   confirming a fine pointer + no `prefers-reduced-motion`, so the native
+   cursor is never hidden without a replacement. Text fields keep a real
+   caret; disabled controls keep their native "not-allowed" affordance. */
+html.custom-cursor-on,
+html.custom-cursor-on * {
+  cursor: none !important;
+}
+
+html.custom-cursor-on input:not([type="checkbox"]):not([type="radio"]),
+html.custom-cursor-on textarea,
+html.custom-cursor-on [contenteditable="true"] {
+  cursor: text !important;
+}
+
+html.custom-cursor-on :disabled,
+html.custom-cursor-on [aria-disabled="true"] {
+  cursor: not-allowed !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
